@@ -69,9 +69,11 @@ any suggestions please open an issue, I would be happy to hear from you.
 
 ### Production
 
-You can use the included Github Action if you create a build branch on Github.
-This builds the index.css file automatically when you push to the main branch.
-You can set up the Shopify Github integration to track the build branch.
+You can use the included Github Action if you have added a `build` branch on
+your Github repo. If you do not create the build branch manually the action
+fails for some reason. This builds the optimized `index.css` file automatically
+when you push to the `main` branch. You can set up the Shopify Github
+integration to track the build branch.
 
 Alternatively, you can create the build manually. Run `npm run build` to build
 for production. You can use the
