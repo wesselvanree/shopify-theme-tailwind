@@ -1,6 +1,6 @@
 # Shopify Theme Tailwind CSS
 
-This repo contains a starting point for Shopify Online Store 2.0 Theme
+This repository contains a starting point for Shopify Online Store 2.0 Theme
 development using Tailwind CSS and the default Dawn theme.
 
 > :bulb: NOTE: On june 29, Shopify introduced a new git-based workflow. To learn
@@ -44,15 +44,15 @@ tag.
 {{ 'index.css' | asset_url | stylesheet_tag }}
 ```
 
-Create a build branch in your Github repo if you want to use the included Github
-Action. This action builds the index.css file in production mode so it is
+Create a build branch in your Github repository if you want to use the included
+Github Action. This action builds the index.css file in production mode so it is
 purged.
 
 ## Usage
 
 ### Development
 
-First, log in to you store if you weren't already logged in.
+First, log in to your store if you was not logged in already.
 
 ```bash
 shopify login --store store-name.myshopify.com
@@ -65,22 +65,22 @@ In a separate terminal, run `npm start`. This command will watch your files and
 build on change.
 
 I have not found a solution to run both commands at the same time. If you have
-any suggestions please open an issue, I would be happy to hear from you.
+any suggestions please open an issue.
 
 ### Production
 
-You can use the included Github Action if you have added a `build` branch on
-your Github repo. If you do not create the build branch manually the action
-fails for some reason. This builds the optimized `index.css` file automatically
-when you push to the `main` branch. You can set up the Shopify Github
-integration to track the build branch.
+You can use the included Github Action if you have added a `build` branch to
+your Github repository. If you do not create the build branch manually the
+action fails for some reason. This action builds the optimized `index.css` file
+automatically when you push to the `main` branch. You can set up the Shopify
+Github integration to track the build branch.
 
 Alternatively, you can create the build manually. Run `npm run build` to build
 for production. You can use the
 [Shopify Github integration](https://shopify.dev/themes/getting-started/create#step-6-install-the-shopify-github-integration-and-connect-your-branch-to-your-store)
-to track the branch you pushed your changes to.
+to track a branch in your Github repository.
 
 ## Suggestions
 
-If you have any suggestions to improve this repo, please open an issue. I would
-be happy to hear from you.
+If you have any suggestions to improve this repository, please open an issue. I
+would be happy to hear from you.
