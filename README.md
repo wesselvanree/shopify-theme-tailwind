@@ -13,6 +13,17 @@ development using Tailwind CSS and the default Dawn theme.
 - Installed the
   [shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli).
 
+## Things to keep in mind
+
+Using the built-in Shopify code editor would not be effective when using file
+transformations like this. The changes made by your merchant in the code editor
+would be overridden when you push new changes. A solution to this could be to
+use
+[just-in-time transformations](https://shopify.dev/themes/best-practices/file-transformation).
+
+I'm currently looking into this, if anyone has a suggestion on how to do this
+using the Github integration, please open an issue.
+
 ## Installation
 
 Run the following commands:
@@ -24,7 +35,8 @@ npm install
 ```
 
 Make sure the `assets/index.css` output file is included in the
-`layout/theme.liquid` file. Add this line of code under the base.css stylesheet tag.
+`layout/theme.liquid` file. Add this line of code under the base.css stylesheet
+tag.
 
 ```liquid
 <!-- line 98 -->
