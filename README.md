@@ -17,8 +17,8 @@ development using Tailwind CSS and the default Dawn theme.
 
 Using the built-in Shopify code editor would not be effective when using file
 transformations like this. The changes made by your merchant in the code editor
-would be overridden when you push new changes. A solution to this could be to
-use
+would be overridden when you push new changes. Shopify suggests a solution to
+this called
 [just-in-time transformations](https://shopify.dev/themes/best-practices/file-transformation).
 
 I'm currently looking into this, if anyone has a suggestion on how to do this
