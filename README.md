@@ -22,7 +22,7 @@ would be overridden when you push new changes. Shopify suggests a solution to
 this called
 [just-in-time transformations](https://shopify.dev/themes/best-practices/file-transformation).
 
-I'm currently looking into this, if anyone has a suggestion on how to do this
+I'm currently looking into this, if you have any suggestions on how to do this
 using the Github integration, please open an issue.
 
 ## Installation
