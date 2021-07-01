@@ -12,5 +12,3 @@ Thumbs.db
 .env.production
 .env.development
 node_modules
-
-assets/index.css
