@@ -1,0 +1,28 @@
+name: Deploy Theme
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build theme
+        run: npm run build
+
+      - name: Push to build branch
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: "['.', '--force assets/index.css']"
+          message: 'Deploy from Github Action'
+          branch: build
