@@ -3,7 +3,7 @@
 This repo contains a starting point for Shopify Online Store 2.0 Theme
 development using Tailwind CSS and the default Dawn theme.
 
-> :bulb: NOTE: On july 29, Shopify introduced a new git-based workflow. To learn
+> :bulb: NOTE: On june 29, Shopify introduced a new git-based workflow. To learn
 > more, visit the
 > [create a theme](https://shopify.dev/themes/getting-started/create) guide or
 > visit [shopify.dev](https://shopify.dev).
