@@ -44,6 +44,10 @@ tag.
 {{ 'index.css' | asset_url | stylesheet_tag }}
 ```
 
+Create a build branch in your Github repo if you want to use the included Github
+Action. This action builds the index.css file in production mode so it is
+purged.
+
 ## Usage
 
 ### Development
@@ -68,6 +72,11 @@ any suggestions please open an issue, I would be happy to hear from you.
 To build for production, run `npm run build`. To publish this build to your
 store, you can use the
 [Shopify Github integration](https://shopify.dev/themes/getting-started/create#step-6-install-the-shopify-github-integration-and-connect-your-branch-to-your-store).
+
+Alternatively, you can use the included Github Action if you create a build
+branch on Github. This builds the index.css file automatically when you push to
+the main branch. You can set up the Shopify Github integration to track the
+build branch.
 
 ## Suggestions
 
