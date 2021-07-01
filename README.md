@@ -10,8 +10,9 @@ development using Tailwind CSS and the default Dawn theme.
 
 ## Prerequisites
 
-- Installed the
-  [shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli).
+- The
+  [shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli)
+  is installed on your machine.
 
 ## Things to keep in mind
 
