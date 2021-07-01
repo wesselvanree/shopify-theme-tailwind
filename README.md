@@ -69,14 +69,14 @@ any suggestions please open an issue, I would be happy to hear from you.
 
 ### Production
 
-To build for production, run `npm run build`. To publish this build to your
-store, you can use the
-[Shopify Github integration](https://shopify.dev/themes/getting-started/create#step-6-install-the-shopify-github-integration-and-connect-your-branch-to-your-store).
+You can use the included Github Action if you create a build branch on Github.
+This builds the index.css file automatically when you push to the main branch.
+You can set up the Shopify Github integration to track the build branch.
 
-Alternatively, you can use the included Github Action if you create a build
-branch on Github. This builds the index.css file automatically when you push to
-the main branch. You can set up the Shopify Github integration to track the
-build branch.
+Alternatively, you can create the build manually. Run `npm run build` to build
+for production. You can use the
+[Shopify Github integration](https://shopify.dev/themes/getting-started/create#step-6-install-the-shopify-github-integration-and-connect-your-branch-to-your-store)
+to track the branch you pushed your changes to.
 
 ## Suggestions
 
