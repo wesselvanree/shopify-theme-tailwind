@@ -5,14 +5,10 @@ The repo starts with the default Dawn theme.
 
 ## Installation
 
-Clone this repo. Then, run:
+Clone this repo. Then run:
 
 ```bash
 npm install
-```
-
-```bash
-npm install postcss-cli --global
 ```
 
 Make sure the `assets/index.css` output file is included in the
