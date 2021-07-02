@@ -3,22 +3,30 @@
 This repository contains a starting point for Shopify Online Store 2.0 Theme
 development using Tailwind CSS and the default Dawn theme.
 
-> :bulb: NOTE: On june 29, Shopify introduced a new git-based workflow. To learn
+> :bulb: On june 29, Shopify introduced a new git-based workflow. To learn
 > more, visit the
-> [create a theme](https://shopify.dev/themes/getting-started/create) guide or
+> [create a theme guide](https://shopify.dev/themes/getting-started/create) or
 > visit [shopify.dev](https://shopify.dev).
 
 ## Workflow
 
 A short description of this workflow:
 
+- Edit theme locally using the Shopify CLI and Tailwind
+- Commit changes to feature branche
+- Merge feature branch with main branch once feature is production-ready
+- Automatically publish build to production branch using Github Actions
+- Sync Shopify store with production branch
+
+### Technologies used
+
 - Tailwind CSS
   - The main css file is located in `src/index.css`
   - This file will be built to `assets/index.css`
 - Shopify CLI
-- Github Actions to deploy the theme to the production branch on push a push event on the main branch.
+- Github Actions to deploy the theme to the production branch on push to the main branch
 
-You can copy the Lighthouse Github Action from the original Dawn theme
+You can copy the Lighthouse Github Action from the original [Dawn theme](https://github.com/Shopify/dawn)
 repository to track the performance of your theme on every push.
 
 ## Prerequisites
@@ -49,6 +57,10 @@ tag.
 Create a build branch in your Github repository if you want to use the included
 Github Action. This action builds the index.css file in production mode so it is
 purged.
+
+Once you made your first commit, a production branch will be created on Github.
+Use the Shopify Github integration to sync your theme with the production branch
+by going to your admin dashboard > Online Store > Themes > Add Theme > Connect from Github.
 
 ## Usage
 
