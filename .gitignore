@@ -8,9 +8,5 @@
 ehthumbs.db
 Thumbs.db
 
-.env
-.env.production
-.env.development
 node_modules
-
 assets/index.css
