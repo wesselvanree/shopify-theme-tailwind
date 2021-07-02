@@ -8,22 +8,24 @@ development using Tailwind CSS and the default Dawn theme.
 > [create a theme](https://shopify.dev/themes/getting-started/create) guide or
 > visit [shopify.dev](https://shopify.dev).
 
+## Workflow
+
+A short description of this workflow:
+
+- Tailwind CSS
+  - The main css file is located in `src/index.css`
+  - This file will be built to `assets/index.css`
+- Shopify CLI
+- Github Actions to deploy the theme to the production branch on push a push event on the main branch.
+
+You can copy the Lighthouse Github Action from the original Dawn theme
+repository to track the performance of your theme on every push.
+
 ## Prerequisites
 
 - The
   [shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli)
   is installed on your machine.
-
-## Things to keep in mind
-
-Using the built-in Shopify code editor would not be effective when using file
-transformations like this. The changes made by your merchant in the code editor
-would be overridden when you push new changes. Shopify suggests a solution to
-this called
-[just-in-time transformations](https://shopify.dev/themes/best-practices/file-transformation).
-
-I'm currently looking into this, if you have any suggestions on how to do this
-using the Github integration, please open an issue.
 
 ## Installation
 
@@ -81,7 +83,26 @@ for production. You can use the
 [Shopify Github integration](https://shopify.dev/themes/getting-started/create#step-6-install-the-shopify-github-integration-and-connect-your-branch-to-your-store)
 to track a branch in your Github repository.
 
-## Suggestions
+## Final notes
+
+### Useful links
+
+- [shopify.dev](https://shopify.dev)
+- [Tools for building Shopfy themes](https://shopify.dev/themes/tools)
+- [Version control for Shopify themes best practices](https://shopify.dev/themes/best-practices/version-control)
+
+### Things to keep in mind
+
+Using the built-in Shopify code editor would not be effective when using file
+transformations like this. The changes made by your merchant in the code editor
+would be overridden when you push new changes. Shopify suggests a solution to
+this called
+[just-in-time transformations](https://shopify.dev/themes/best-practices/file-transformation).
+
+I'm currently looking into this, if you have any suggestions on how to do this
+using the Github integration, please open an issue.
+
+### Suggestions
 
 If you have any suggestions to improve this repository, please open an issue. I
 would be happy to hear from you.
