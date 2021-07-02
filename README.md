@@ -69,11 +69,12 @@ any suggestions please open an issue.
 
 ### Production
 
-You can use the included Github Action if you have added a `build` branch to
-your Github repository. If you do not create the build branch manually the
-action fails for some reason. This action builds the optimized `index.css` file
-automatically when you push to the `main` branch. You can set up the Shopify
-Github integration to track the build branch.
+This repository contains a Github Action that uses
+[JamesIves/github-pages-deploy-action@4.1.4](https://github.com/JamesIves/github-pages-deploy-action).
+This action does not activate Github Pages in your repository but just commits
+the build to another branch. Currently, the action is configured to deploy the
+build to the production branch. You can easily customize this by editing
+`.github/workflows/deploy.yml`.
 
 Alternatively, you can create the build manually. Run `npm run build` to build
 for production. You can use the
