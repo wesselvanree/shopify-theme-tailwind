@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production postcss src/index.css -o assets/index.css",
-    "watch": "postcss src/index.css -o assets/index.css --watch",
+    "watch": "npm-run-all -p watch:*",
+    "watch:css": "postcss src/index.css -o assets/index.css --watch",
+    "watch:theme": "shopify theme serve",
     "start": "npm run watch"
   },
   "keywords": [
@@ -18,6 +20,8 @@
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.5",
     "postcss-cli": "^8.3.1",
-    "tailwindcss": "^2.2.4"
-  }
+    "tailwindcss": "^2.2.4",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {}
 }

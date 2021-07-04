@@ -3,8 +3,8 @@
 This repository contains a starting point for Shopify Online Store 2.0 Theme
 development using Tailwind CSS and the default Dawn theme.
 
-> :bulb: On june 29, Shopify introduced a new git-based workflow. To learn
-> more, visit the
+> :bulb: On june 29, Shopify introduced a new git-based workflow. To learn more,
+> visit the
 > [create a theme guide](https://shopify.dev/themes/getting-started/create) or
 > visit [shopify.dev](https://shopify.dev).
 
@@ -13,7 +13,7 @@ development using Tailwind CSS and the default Dawn theme.
 A short description of this workflow:
 
 - Edit theme locally using the Shopify CLI and Tailwind
-- Commit changes to feature branche
+- Commit changes to feature branch
 - Merge feature branch with main branch once feature is implemented
 - Automatically publish build to dist branch using Github Actions
 - Sync Shopify store with dist branch
@@ -24,10 +24,12 @@ A short description of this workflow:
   - The main css file is located in `src/index.css`
   - This file will be built to `assets/index.css`
 - Shopify CLI
-- Github Actions to deploy the theme to the dist branch on push to the main branch
+- Github Actions to deploy the theme to the dist branch on push to the main
+  branch
 
-You can copy the Lighthouse Github Action from the original [Dawn theme](https://github.com/Shopify/dawn)
-repository to track the performance of your theme on every push.
+You can copy the Lighthouse Github Action from the original
+[Dawn theme](https://github.com/Shopify/dawn) repository to track the
+performance of your theme on every push.
 
 ## Prerequisites
 
@@ -54,13 +56,10 @@ tag.
 {{ 'index.css' | asset_url | stylesheet_tag }}
 ```
 
-Create a build branch in your Github repository if you want to use the included
-Github Action. This action builds the index.css file in production mode so it is
-purged.
-
-Once you've made your first commit, a dist branch will be created on Github.
-Use the Shopify Github integration to sync your theme with the dist branch
-by going to your admin dashboard > Online Store > Themes > Add Theme > Connect from Github.
+Once you've made your first commit, a dist branch will be created on Github. Use
+the Shopify Github integration to sync your theme with the dist branch by going
+to `your admin dashboard` > `Online Store` > `Themes` > `Add Theme` >
+`Connect from Github`.
 
 ## Usage
 
@@ -69,17 +68,11 @@ by going to your admin dashboard > Online Store > Themes > Add Theme > Connect f
 First, log in to your store if you was not logged in already.
 
 ```bash
-shopify login --store store-name.myshopify.com
+shopify login --store your-store-name.myshopify.com
 ```
 
-After that, run `shopify theme serve`. This will start the shopify theme dev
-server
-
-In a separate terminal, run `npm start`. This command will watch your files and
-build on change.
-
-I have not found a solution to run both commands at the same time. If you have
-any suggestions please open an issue.
+Run `npm start`. This command will watch your files, build on change and update
+the Shopify theme preview.
 
 ### Production
 
@@ -107,12 +100,7 @@ to track a branch in your Github repository.
 
 Using the built-in Shopify code editor would not be effective when using file
 transformations like this. The changes made by your merchant in the code editor
-would be overridden when you push new changes. Shopify suggests a solution to
-this called
-[just-in-time transformations](https://shopify.dev/themes/best-practices/file-transformation).
-
-I'm currently looking into this, if you have any suggestions on how to do this
-using the Github integration, please open an issue.
+would be overridden when you push new changes.
 
 ### Suggestions
 
