@@ -14,9 +14,9 @@ A short description of this workflow:
 
 - Edit theme locally using the Shopify CLI and Tailwind
 - Commit changes to feature branche
-- Merge feature branch with main branch once feature is production-ready
-- Automatically publish build to production branch using Github Actions
-- Sync Shopify store with production branch
+- Merge feature branch with main branch once feature is implemented
+- Automatically publish build to dist branch using Github Actions
+- Sync Shopify store with dist branch
 
 ### Technologies used
 
@@ -24,7 +24,7 @@ A short description of this workflow:
   - The main css file is located in `src/index.css`
   - This file will be built to `assets/index.css`
 - Shopify CLI
-- Github Actions to deploy the theme to the production branch on push to the main branch
+- Github Actions to deploy the theme to the dist branch on push to the main branch
 
 You can copy the Lighthouse Github Action from the original [Dawn theme](https://github.com/Shopify/dawn)
 repository to track the performance of your theme on every push.
@@ -58,8 +58,8 @@ Create a build branch in your Github repository if you want to use the included
 Github Action. This action builds the index.css file in production mode so it is
 purged.
 
-Once you made your first commit, a production branch will be created on Github.
-Use the Shopify Github integration to sync your theme with the production branch
+Once you've made your first commit, a dist branch will be created on Github.
+Use the Shopify Github integration to sync your theme with the dist branch
 by going to your admin dashboard > Online Store > Themes > Add Theme > Connect from Github.
 
 ## Usage
@@ -87,7 +87,7 @@ This repository contains a Github Action that uses
 [JamesIves/github-pages-deploy-action@4.1.4](https://github.com/JamesIves/github-pages-deploy-action).
 This action does not activate Github Pages in your repository but just commits
 the build to another branch. Currently, the action is configured to deploy the
-build to the production branch. You can easily customize this by editing
+build to the dist branch. You can easily customize this by editing
 `.github/workflows/deploy.yml`.
 
 Alternatively, you can create the build manually. Run `npm run build` to build
