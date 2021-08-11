@@ -210,7 +210,7 @@ And now you can enjoy your React component.
 - Please do not use a npm package for everything, always consider if the package
   is worth the larger bundle size. Adding
 
-### Useful links
+### Further reading
 
 - [shopify.dev](https://shopify.dev)
 - [Tools for building Shopify themes](https://shopify.dev/themes/tools)
