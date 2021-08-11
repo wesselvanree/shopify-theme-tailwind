@@ -3,6 +3,10 @@
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
+      {%- when '@app' -%}
+        <div class="page-width page-width--narrow">
+          {% render block %}
+        </div>
       {%- when 'featured_image'-%}
         {%- if article.image -%}
           <div class="article-template__hero-container" {{ block.shopify_attributes }}>
@@ -10,13 +14,14 @@
               itemprop="image"
               {% if block.settings.image_height == 'adapt' and article.image %} style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"{% endif %}
             >
-              <img srcset="{% if article.image.width >= 350 %}{{ article.image | img_url: '350x' }} 350w,{% endif %}
-                  {% if article.image.width >= 700 %}{{ article.image | img_url: '700x' }} 700w,{% endif %}
-                  {% if article.image.width >= 749 %}{{ article.image | img_url: '749x' }} 749w,{% endif %}
-                  {% if article.image.width >= 1498 %}{{ article.image | img_url: '1498x' }} 1498w,{% endif %}
+              <img
+                srcset="{% if article.image.width >= 350 %}{{ article.image | img_url: '350x' }} 350w,{% endif %}
+                  {% if article.image.width >= 750 %}{{ article.image | img_url: '750x' }} 750w,{% endif %}
                   {% if article.image.width >= 1100 %}{{ article.image | img_url: '1100x' }} 1100w,{% endif %}
-                  {% if article.image.width >= 2200 %}{{ article.image | img_url: '2200x' }} 2200w,{% endif %}"
-                sizes="(min-width: 1200px) 1100px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                  {% if article.image.width >= 1500 %}{{ article.image | img_url: '1500x' }} 1500w,{% endif %}
+                  {% if article.image.width >= 2200 %}{{ article.image | img_url: '2200x' }} 2200w,{% endif %}
+                  {% if article.image.width >= 3000 %}{{ article.image | img_url: '3000x' }} 3000w,{% endif %}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
                 src="{{ article.image | img_url: '1100x' }}"
                 loading="lazy"
                 width="{{ article.image.width }}"
@@ -44,16 +49,48 @@
               {{ article.content }}
           </div>
 
-        {%- when 'social_sharing'-%}
+        {%- when 'share' -%}
           <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
-            {% render 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+            <share-button class="share-button" {{ block.shopify_attributes }}>
+              <button class="share-button__button button button--tertiary hidden">
+                {% render 'icon-share' %}
+                {{ 'general.share.share' | t }}
+              </button>
+              <details>
+                <summary class="share-button__button button button--tertiary">
+                  {% render 'icon-share' %}
+                  {{ 'general.share.share' | t }}
+                </summary>
+                <div class="share-button__fallback">
+                  <div class="field">
+                    <input type="text"
+                          class="field__input"
+                          id="url"
+                          value="{{ shop.url | append: article.url }}"
+                          placeholder="{{ 'general.share.share_url' | t }}"
+                          onclick="this.select();"
+                          readonly
+                    >
+                    <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
+                  </div>
+                  <button class="button button--tertiary">
+                    {% render 'icon-clipboard' %}
+                    {{ 'general.share.copy_to_clipboard' | t }}
+                  </button>
+                  <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status" aria-hidden="true">
+                    {{ 'general.share.success_message' | t }}
+                  </span>
+                </div>
+              </details>
+            </share-button>
+            <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
           </div>
     {%- endcase -%}
   {%- endfor -%}
 
   <div class="element-margin center">
-    <a href="{{ blog.url }}" class="article-template__link link{% if blog.comments_enabled? == false %} spaced-section{% endif %}">
-      {% render 'icon-arrow' %}
+    <a href="{{ blog.url }}" class="article-template__link link animate-arrow{% if blog.comments_enabled? == false %} spaced-section{% endif %}">
+      <span class="icon-wrap">{% render 'icon-arrow' %}</span>
       {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
     </a>
   </div>
@@ -210,6 +247,9 @@
   "tag": "section",
   "blocks": [
     {
+      "type": "@app"
+    },
+    {
       "type": "featured_image",
       "name": "t:sections.main-article.blocks.featured_image.name",
       "limit": 1,
@@ -262,9 +302,19 @@
       "limit": 1
     },
     {
-      "type": "social_sharing",
-      "name": "t:sections.main-article.blocks.social_sharing.name",
-      "limit": 1
+      "type": "share",
+      "name": "t:sections.main-article.blocks.share.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.featured_image_info.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.title_info.content"
+        }
+      ]
     }
   ]
 }

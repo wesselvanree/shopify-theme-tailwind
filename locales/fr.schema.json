@@ -64,7 +64,41 @@
           },
           "options__2": {
             "label": "Inverser"
-          }
+          },
+          "label": "Schéma de couleurs des badges épuisés"
+        },
+        "header__1": {
+          "content": "Badges"
+        },
+        "header__2": {
+          "content": "Éléments décoratifs"
+        },
+        "sale_badge_color_scheme": {
+          "options__1": {
+            "label": "Arrière-plan 2"
+          },
+          "options__2": {
+            "label": "Accentuation 1"
+          },
+          "options__3": {
+            "label": "Accentuation 2"
+          },
+          "label": "Schéma de couleurs des badges de vente"
+        },
+        "accent_icons": {
+          "options__1": {
+            "label": "Accentuation 1"
+          },
+          "options__2": {
+            "label": "Accentuation 2"
+          },
+          "options__3": {
+            "label": "Bouton en relief"
+          },
+          "options__4": {
+            "label": "Texte"
+          },
+          "label": "Icônes d'accent"
         }
       }
     },
@@ -122,6 +156,16 @@
           "label": "Vimeo",
           "info": "https://vimeo.com/shopify"
         }
+      }
+    },
+    "currency_format": {
+      "name": "Format de devise",
+      "settings": {
+        "content": "Codes de devise",
+        "currency_code_enabled": {
+          "label": "Afficher les codes de devise"
+        },
+        "paragraph": "Le panier et les prix au moment du paiement indiquent toujours les codes de devise. Exemple : 1 EUR."
       }
     }
   },
@@ -452,6 +496,9 @@
         },
         "show_vendor": {
           "label": "Afficher le distributeur"
+        },
+        "show_image_outline": {
+          "label": "Afficher le contour de l'image"
         }
       },
       "presets": {
@@ -913,6 +960,9 @@
           "label": "Activer le filtrage",
           "info": "[Personnaliser les filtres](/admin/menus)"
         },
+        "show_image_outline": {
+          "label": "Afficher le contour de l'image"
+        },
         "enable_sort": {
           "label": "Activer le tri"
         }
@@ -1098,7 +1148,15 @@
           "name": "Description"
         },
         "share": {
-          "name": "Partager"
+          "name": "Partager",
+          "settings": {
+            "featured_image_info": {
+              "content": "Si vous incluez un lien dans les publications sur les réseaux sociaux, l'image vedette de la page sera affichée comme image d'aperçu. [En savoir plus](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+            },
+            "title_info": {
+              "content": "Un titre et une description de la boutique sont inclus avec l'image d'aperçu. [En savoir plus](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
+            }
+          }
         },
         "collapsible_tab": {
           "name": "Onglet réductible",
@@ -1185,7 +1243,8 @@
               },
               "options__24": {
                 "label": "Lavage"
-              }
+              },
+              "label": "Icône"
             }
           }
         },
@@ -1208,8 +1267,12 @@
         },
         "enable_video_looping": {
           "label": "Activer le bouclage de la vidéo"
+        },
+        "enable_sticky_info": {
+          "label": "Activer les informations produits collées sur de grands écrans"
         }
-      }
+      },
+      "name": "Informations produits"
     },
     "main-search": {
       "name": "Résultats de la recherche",
@@ -1229,8 +1292,8 @@
         "show_secondary_image": {
           "label": "Afficher la deuxième image en survol"
         },
-        "enable_image_padding": {
-          "label": "Ajouter une marge intérieure à l'image"
+        "add_image_padding": {
+          "label": "Ajouter de l'espace au pourtour de l'image"
         },
         "show_vendor": {
           "label": "Afficher le distributeur"
@@ -1246,6 +1309,9 @@
         },
         "article_show_author": {
           "label": "Afficher l'auteur"
+        },
+        "show_image_outline": {
+          "label": "Afficher le contour de l'image"
         }
       }
     },
@@ -1425,10 +1491,16 @@
           "label": "Afficher la deuxième image en survol"
         },
         "add_image_padding": {
-          "label": "Ajouter une marge intérieure"
+          "label": "Ajouter une marge intérieure à l'image"
         },
         "show_vendor": {
           "label": "Afficher le distributeur"
+        },
+        "paragraph__1": {
+          "content": "Les recommandations dynamiques utilisent les informations sur les commandes et les produits pour changer et s'améliorer au fil du temps. [En savoir plus](https://help.shopify.com/en/themes/development/recommended-products)"
+        },
+        "show_image_outline": {
+          "label": "Afficher le contour de l'image"
         }
       }
     },
@@ -1500,6 +1572,17 @@
       },
       "presets": {
         "name": "Texte enrichi"
+      }
+    },
+    "apps": {
+      "name": "Applications",
+      "settings": {
+        "include_margins": {
+          "label": "Rendre les marges des sections identiques à celles du thème"
+        }
+      },
+      "presets": {
+        "name": "Applications"
       }
     }
   }

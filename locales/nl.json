@@ -44,10 +44,10 @@
       "item_added": "Artikel toegevoegd aan winkelwagen"
     },
     "share": {
-      "copy_to_clipboard": "Kopieer URL naar klembord",
+      "copy_to_clipboard": "Link kopiëren",
       "share": "Delen",
-      "share_url": "Deel URL",
-      "success_message": "Naar klembord gekopieerd!"
+      "share_url": "Link",
+      "success_message": "Link gekopieerd naar klembord!"
     }
   },
   "date_formats": {
@@ -72,7 +72,8 @@
     "next_slide": "Naar rechts schuiven",
     "previous_slide": "Naar links schuiven",
     "loading": "Bezig met laden...",
-    "of": "van"
+    "of": "van",
+    "skip_to_product_info": "Ga direct naar productinformatie"
   },
   "blogs": {
     "article": {
@@ -128,10 +129,16 @@
         "view_store_info": "Winkelgegevens bekijken",
         "check_other_stores": "Controleer de beschikbaarheid bij andere winkels",
         "pick_up_available": "Afhaling is beschikbaar",
-        "pick_up_available_at_html": "Afhaling is beschikbaar bij <strong>{{ location_name }}</strong>",
-        "pick_up_unavailable_at_html": "Afhaling is momenteel niet beschikbaar bij <strong>{{ location_name }}</strong>",
+        "pick_up_available_at_html": "Afhaling is beschikbaar bij <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "Afhaling is momenteel niet beschikbaar bij <span class=\"color-foreground\">{{ location_name }}</span>",
         "unavailable": "Kan beschikbaarheid voor afhalen niet laden",
         "refresh": "Vernieuwen"
+      },
+      "media": {
+        "open_featured_media": "Uitgelichte media openen in galerieweergave",
+        "open_media": "{{ index }} van media openen in galerieweergave",
+        "play_model": "3D-viewer afspelen",
+        "play_video": "Video afspelen"
       }
     },
     "modal": {
@@ -184,12 +191,12 @@
       "new_subtotal": "Nieuw subtotaal",
       "note": "Speciale instructies voor bestelling",
       "checkout": "Afrekenen",
-      "empty": "Je winkelwagen is leeg",
+      "empty": "Je winkelwagen is leeg.",
       "cart_error": "Er is een fout opgetreden bij het bijwerken van je winkelwagen. Probeer het opnieuw.",
       "cart_quantity_error_html": "Je kunt maar [aantal] van dit artikel toevoegen aan je winkelwagen.",
       "taxes_and_shipping_policy_at_checkout_html": "Belastingen en <a href=\"{{ link }}\">verzendkosten</a> worden berekend bij de checkout",
       "taxes_included_but_shipping_at_checkout": "Belasting inbegrepen en verzendkosten worden berekend bij de checkout",
-      "taxes_included_and_shipping_policy_html": "Inclusief belasting. <a href=\"{{ link }}\">Verzendkosten</a> worden berekend bij de checkout.",
+      "taxes_included_and_shipping_policy_html": "Inclusief btw. <a href=\"{{ link }}\">Verzendkosten</a> worden berekend bij de checkout.",
       "taxes_and_shipping_at_checkout": "Belastingen en verzendkosten worden berekend bij de checkout",
       "headings": {
         "product": "Product",
@@ -197,7 +204,11 @@
         "total": "Totaal",
         "quantity": "Aantal"
       },
-      "update": "Bijwerken"
+      "update": "Bijwerken",
+      "login": {
+        "title": "Heb je een account?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> om sneller af te rekenen."
+      }
     },
     "footer": {
       "payment": "Betaalmethoden",
@@ -217,21 +228,35 @@
     },
     "collection_template": {
       "title": "Collectie",
-      "sort_by_label": "Sorteer op",
+      "sort_by_label": "Sorteer op:",
       "sort_button": "Sorteren",
-      "product_count": "{{ count }} producten",
+      "product_count": {
+        "one": "{{ product_count }} korting op {{ count }} producten",
+        "other": "{{ product_count }} korting op {{ count }} producten"
+      },
       "empty": "Geen producten gevonden",
       "apply": "Toepassen",
       "clear": "Wissen",
       "clear_all": "Alles wissen",
       "from": "Van",
       "filter_and_sort": "Filteren en sorteren",
-      "filter_by_label": "Filter op",
+      "filter_by_label": "Filter:",
       "filter_button": "Filter",
       "max_price": "De hoogste prijs is {{ price }}",
       "reset": "Opnieuw instellen",
       "to": "Aan",
-      "use_fewer_filters_html": "Minder filters gebruiken of <a class=\"{{ class }}\" href=\"{{ link }}\">alles wissen</a>"
+      "use_fewer_filters_html": "Minder filters gebruiken of <a class=\"{{ class }}\" href=\"{{ link }}\">alles wissen</a>",
+      "filters_selected": {
+        "one": "{{ count }} geselecteerd",
+        "other": "{{ count }} geselecteerd"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} producten"
+      }
+    },
+    "video": {
+      "load_video": "Video laden: {{ description }}"
     }
   },
   "localization": {

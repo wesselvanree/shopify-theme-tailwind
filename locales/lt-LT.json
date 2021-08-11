@@ -44,10 +44,10 @@
       "item_added": "Prekė įdėta į jūsų krepšelį"
     },
     "share": {
-      "copy_to_clipboard": "Kopijuoti URL į iškarpinę",
+      "copy_to_clipboard": "Kopijuoti nuorodą",
       "share": "Bendrinti",
-      "share_url": "Bendrinti URL",
-      "success_message": "Nukopijuota į iškarpinę!"
+      "share_url": "Nuoroda",
+      "success_message": "Nuoroda nukopijuota į iškarpinę!"
     }
   },
   "date_formats": {
@@ -72,7 +72,8 @@
       "new_window": "Atsidaro naujame lange.",
       "external": "Atidaro išorinę svetainę."
     },
-    "of": "iš"
+    "of": "iš",
+    "skip_to_product_info": "Pereiti prie informacijos apie gaminį"
   },
   "blogs": {
     "article": {
@@ -134,6 +135,12 @@
         "pick_up_unavailable_at_html": "Šiuo metu atsiimti <span class=\"color-foreground\">{{ location_name }}</span>negalima",
         "unavailable": "Nepavyko įkelti atsiėmimo galimybių",
         "refresh": "Atnaujinti"
+      },
+      "media": {
+        "open_featured_media": "Atidaryti siūlomą mediją galerijos rodinyje",
+        "open_media": "Atidaryti mediją {{ index }} galerijos rodinyje",
+        "play_model": "Paleisti 3D peržiūros programą",
+        "play_video": "Paleisti vaizdo įrašą"
       }
     },
     "modal": {
@@ -142,7 +149,7 @@
   },
   "templates": {
     "search": {
-      "no_results": "Nerasta jokių rezultatų pagal užklausą „{{ terms }}“ . Patikrinkite rašybą arba vartokite kitą žodį ar frazę.",
+      "no_results": "Nerasta jokių rezultatų pagal užklausą „{{ terms }}“. Patikrinkite rašybą arba vartokite kitą žodį ar frazę.",
       "page": "Puslapis",
       "title": "Paieškos rezultatai",
       "results_with_count": {
@@ -190,7 +197,7 @@
       "new_subtotal": "Nauja tarpinė suma",
       "note": "Specialūs nurodymai dėl užsakymo",
       "checkout": "Atsiskaityti",
-      "empty": "Jūsų krepšelis tuščias",
+      "empty": "Jūsų krepšelis tuščias.",
       "cart_error": "Atnaujinant krepšelį įvyko klaida. Bandykite dar kartą.",
       "cart_quantity_error_html": "Į krepšelį galite pridėti tik [quantity] šios prekės vnt.",
       "taxes_and_shipping_policy_at_checkout_html": "Mokesčiai ir <a href=\"{{ link }}\">siuntimo išlaidos</a> apskaičiuojami atsiskaitant",
@@ -203,6 +210,10 @@
         "price": "Kaina",
         "total": "Visa suma",
         "quantity": "Kiekis"
+      },
+      "login": {
+        "title": "Turite paskyrą?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Prisijunkite</a> ir atsiskaitysite greičiau."
       }
     },
     "footer": {
@@ -223,21 +234,41 @@
     },
     "collection_template": {
       "title": "Kolekcija",
-      "sort_by_label": "Rūšiuoti pagal",
+      "sort_by_label": "Rūšiuoti pagal:",
       "sort_button": "Rūšiuoti",
-      "product_count": "{{ count }} gaminiai (-ių)",
+      "product_count": {
+        "one": "{{ product_count }} iš {{ count }} gaminio",
+        "other": "{{ product_count }} iš {{ count }} gaminių",
+        "few": "{{ product_count }} iš {{ count }} gaminių",
+        "many": "{{ product_count }} iš {{ count }} gaminių"
+      },
       "empty": "Nerasta jokių gaminių",
       "apply": "Taikyti",
       "clear": "Išvalyti",
       "clear_all": "Išvalyti viską",
       "from": "Nuo",
       "filter_and_sort": "Filtruoti ir rūšiuoti",
-      "filter_by_label": "Filtruoti pagal",
+      "filter_by_label": "Filtruoti:",
       "filter_button": "Filtruoti",
       "max_price": "Didžiausia kaina yra {{ price }}",
       "reset": "Nustatyti iš naujo",
       "to": "Iki",
-      "use_fewer_filters_html": "Naudoti mažiau filtrų arba <a class=\"{{ class }}\" href=\"{{ link }}\">išvalyti viską</a>"
+      "use_fewer_filters_html": "Naudoti mažiau filtrų arba <a class=\"{{ class }}\" href=\"{{ link }}\">išvalyti viską</a>",
+      "filters_selected": {
+        "one": "Pasirinkta {{ count }}",
+        "other": "Pasirinkta {{ count }}",
+        "few": "Pasirinkta {{ count }}",
+        "many": "Pasirinkta {{ count }}"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} gaminys",
+        "other": "{{ count }} gaminiai (-ių)",
+        "few": "{{ count }} gaminiai (-ių)",
+        "many": "{{ count }} gaminiai (-ių)"
+      }
+    },
+    "video": {
+      "load_video": "Įkelti vaizdo įrašą „{{ description }}“"
     }
   },
   "localization": {
