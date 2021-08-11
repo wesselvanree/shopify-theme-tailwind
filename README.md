@@ -193,7 +193,7 @@ to use it. I will add it to `layout/theme.liquid`:
 
 ```html
 <!-- line 24 -->
-<script src="{{ 'index.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'index.bundle.js' | asset_url }}" defer="defer"></script>
 
 ...
 
