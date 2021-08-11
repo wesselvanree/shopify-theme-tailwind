@@ -68,7 +68,7 @@
           "options__3": {
             "label": "Markering 2"
           },
-          "label": "Farvesystem for salgsbadges"
+          "label": "Farveskema for salgsbadges"
         },
         "sold_out_badge_color_scheme": {
           "options__1": {
@@ -77,7 +77,28 @@
           "options__2": {
             "label": "Omvendt"
           },
-          "label": "Farvesystem for udsolgt-badges"
+          "label": "Farveskema for udsolgt-badges"
+        },
+        "header__1": {
+          "content": "Badges"
+        },
+        "header__2": {
+          "content": "Dekorative elementer"
+        },
+        "accent_icons": {
+          "options__1": {
+            "label": "Markering 1"
+          },
+          "options__2": {
+            "label": "Markering 2"
+          },
+          "options__3": {
+            "label": "Rammeknap"
+          },
+          "options__4": {
+            "label": "Tekst"
+          },
+          "label": "Markeringsikoner"
         }
       }
     },
@@ -135,6 +156,16 @@
           "label": "Vimeo",
           "info": "https://vimeo.com/shopify"
         }
+      }
+    },
+    "currency_format": {
+      "name": "Valutaformat",
+      "settings": {
+        "content": "Valutakoder",
+        "currency_code_enabled": {
+          "label": "Vis valutakoder"
+        },
+        "paragraph": "Priser i indkøbskurv og betalingsproces viser altid valutakoder. Eksempel: 1,00 USD."
       }
     }
   },
@@ -465,6 +496,9 @@
         },
         "show_vendor": {
           "label": "Vis forhandler"
+        },
+        "show_image_outline": {
+          "label": "Vis billedkontur"
         }
       },
       "presets": {
@@ -913,9 +947,6 @@
           "label": "Aktivér filtrering",
           "info": "[Tilpas filtre](/admin/menus)"
         },
-        "enable_sort": {
-          "label": "Aktivér sortering"
-        },
         "enable_filtering": {
           "label": "Aktivér filtrering",
           "info": "[Tilpas filtre](/admin/menus)"
@@ -928,6 +959,12 @@
         },
         "header__3": {
           "content": "Produktkort"
+        },
+        "show_image_outline": {
+          "label": "Vis billedkontur"
+        },
+        "enable_sort": {
+          "label": "Aktivér sortering"
         }
       }
     },
@@ -1051,7 +1088,7 @@
       }
     },
     "main-product": {
-      "name": "Produkt",
+      "name": "Produktoplysninger",
       "blocks": {
         "text": {
           "name": "Tekst",
@@ -1117,6 +1154,12 @@
             "header": {
               "content": "Del",
               "info": "Når du slår et link fra din webshop op på sociale medier, vises det udvalgte billede for denne side. [Få mere at vide](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images). Angiv en titel og en beskrivelse for din webshop. [Få mere at vide](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)"
+            },
+            "featured_image_info": {
+              "content": "Hvis du in\bkluderer et link i opslag på sociale medier, vil sidens udvalgte billede blive vist som billedeksempel. [Få mere at vide](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+            },
+            "title_info": {
+              "content": "Der er inkluderet en butikstitel og -beskrivelse med billedeksemplet. [Få mere at vide](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
             }
           }
         },
@@ -1134,7 +1177,7 @@
               "label": "Faneindhold fra side"
             },
             "icon": {
-              "label": "Faneikon",
+              "label": "Ikon",
               "options__1": {
                 "label": "Ingen"
               },
@@ -1229,6 +1272,9 @@
         },
         "enable_video_looping": {
           "label": "Aktivér looping af videoer"
+        },
+        "enable_sticky_info": {
+          "label": "Aktivér fastgjorte produktoplysninger på store skærme"
         }
       }
     },
@@ -1250,7 +1296,7 @@
         "show_secondary_image": {
           "label": "Vis sekundær baggrund, når der peges"
         },
-        "enable_image_padding": {
+        "add_image_padding": {
           "label": "Tilføj billedmargen"
         },
         "show_vendor": {
@@ -1267,6 +1313,9 @@
         },
         "article_show_author": {
           "label": "Vis forfatter"
+        },
+        "show_image_outline": {
+          "label": "Vis billedkontur"
         }
       }
     },
@@ -1450,10 +1499,16 @@
           "label": "Vis sekundær baggrund, når der peges"
         },
         "add_image_padding": {
-          "label": "Tilføj margen"
+          "label": "Tilføj billedmargen"
         },
         "show_vendor": {
           "label": "Vis forhandler"
+        },
+        "paragraph__1": {
+          "content": "Dynamiske anbefalinger bruger ordre- og produktoplysninger til at foretage ændringer og forbedringer med tiden. [Få mere at vide](https://help.shopify.com/en/themes/development/recommended-products)"
+        },
+        "show_image_outline": {
+          "label": "Vis billedkontur"
         }
       }
     },
@@ -1525,6 +1580,17 @@
       },
       "presets": {
         "name": "RTF"
+      }
+    },
+    "apps": {
+      "name": "Apps",
+      "settings": {
+        "include_margins": {
+          "label": "Gør afsnitsmargener til det samme som tema"
+        }
+      },
+      "presets": {
+        "name": "Apps"
       }
     }
   }

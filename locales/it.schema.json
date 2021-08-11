@@ -68,7 +68,7 @@
           "options__3": {
             "label": "Elemento in risalto 2"
           },
-          "label": "Sistema di colori per badge vendita"
+          "label": "Schema di colori per badge vendita"
         },
         "sold_out_badge_color_scheme": {
           "options__1": {
@@ -77,7 +77,28 @@
           "options__2": {
             "label": "Inverso"
           },
-          "label": "Sistema di colori per badge esaurito"
+          "label": "Schema di colori per badge esaurito"
+        },
+        "header__1": {
+          "content": "Badge"
+        },
+        "header__2": {
+          "content": "Elementi decorativi"
+        },
+        "accent_icons": {
+          "options__1": {
+            "label": "Elemento in risalto 1"
+          },
+          "options__2": {
+            "label": "Elemento in risalto 2"
+          },
+          "options__3": {
+            "label": "Contorno pulsante"
+          },
+          "options__4": {
+            "label": "Testo"
+          },
+          "label": "Icone in risalto"
         }
       }
     },
@@ -135,6 +156,16 @@
           "label": "Vimeo",
           "info": "https://vimeo.com/shopify"
         }
+      }
+    },
+    "currency_format": {
+      "name": "Formato valuta",
+      "settings": {
+        "content": "Codici valuta",
+        "currency_code_enabled": {
+          "label": "Mostra i codici valuta"
+        },
+        "paragraph": "I prezzi del carrello e del check-out mostrano sempre i codici valuta. Esempio: 1,00 EUR."
       }
     }
   },
@@ -465,6 +496,9 @@
         },
         "show_vendor": {
           "label": "Mostra fornitore"
+        },
+        "show_image_outline": {
+          "label": "Mostra contorno dell'immagine"
         }
       },
       "presets": {
@@ -913,9 +947,6 @@
           "label": "Abilita i filtri",
           "info": "[Personalizza i filtri](/admin/menus)"
         },
-        "enable_sort": {
-          "label": "Abilita ordinamento"
-        },
         "enable_filtering": {
           "label": "Abilita i filtri",
           "info": "[Personalizza i filtri](/admin/menus)"
@@ -928,6 +959,12 @@
         },
         "header__3": {
           "content": "Scheda prodotto"
+        },
+        "show_image_outline": {
+          "label": "Mostra contorno dell'immagine"
+        },
+        "enable_sort": {
+          "label": "Abilita ordinamento"
         }
       }
     },
@@ -1051,7 +1088,7 @@
       }
     },
     "main-product": {
-      "name": "Prodotto",
+      "name": "Informazioni di prodotto",
       "blocks": {
         "text": {
           "name": "Testo",
@@ -1117,6 +1154,12 @@
             "header": {
               "content": "Condividi",
               "info": "Quando pubblichi sui social media un link del tuo negozio online, viene mostrata l'immagine in evidenza della pagina. [Maggiori informazioni](https://help.shopify.com/it/manual/online-store/images/showing-social-media-thumbnail-images). Imposta un titolo e una descrizione per il tuo negozio online. [Maggiori informazioni](https://help.shopify.com/it/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)"
+            },
+            "featured_image_info": {
+              "content": "Se includi un link in post sui social media, l'immagine in evidenza della pagina verrà mostrata come immagine di anteprima. [Maggiori informazioni](https://help.shopify.com/it/manual/online-store/images/showing-social-media-thumbnail-images)."
+            },
+            "title_info": {
+              "content": "Insieme all'immagine di anteprima sono inclusi un titolo e una descrizione del negozio. [Maggiori informazioni](https://help.shopify.com/it/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
             }
           }
         },
@@ -1134,7 +1177,7 @@
               "label": "Contenuto della scheda dalla pagina"
             },
             "icon": {
-              "label": "Icona della scheda",
+              "label": "Icona",
               "options__1": {
                 "label": "Nessuna"
               },
@@ -1229,6 +1272,9 @@
         },
         "enable_video_looping": {
           "label": "Abilita la riproduzione in loop dei video"
+        },
+        "enable_sticky_info": {
+          "label": "Abilita le informazioni di prodotto fisse su schermi grandi"
         }
       }
     },
@@ -1250,7 +1296,7 @@
         "show_secondary_image": {
           "label": "Mostra la seconda immagine al passaggio del mouse"
         },
-        "enable_image_padding": {
+        "add_image_padding": {
           "label": "Aggiungi spaziatura immagine"
         },
         "show_vendor": {
@@ -1267,6 +1313,9 @@
         },
         "article_show_author": {
           "label": "Mostra autore"
+        },
+        "show_image_outline": {
+          "label": "Mostra contorno dell'immagine"
         }
       }
     },
@@ -1450,10 +1499,16 @@
           "label": "Mostra la seconda immagine al passaggio del mouse"
         },
         "add_image_padding": {
-          "label": "Aggiungi spaziatura"
+          "label": "Aggiungi spaziatura immagine"
         },
         "show_vendor": {
           "label": "Mostra fornitore"
+        },
+        "paragraph__1": {
+          "content": "Le raccomandazioni dinamiche utilizzano i dati di ordini e prodotti per cambiare e migliorare nel tempo. [Maggiori informazioni](https://shopify.dev/tutorials/develop-theme-recommended-products)"
+        },
+        "show_image_outline": {
+          "label": "Mostra contorno dell'immagine"
         }
       }
     },
@@ -1525,6 +1580,17 @@
       },
       "presets": {
         "name": "Rich text"
+      }
+    },
+    "apps": {
+      "name": "App",
+      "settings": {
+        "include_margins": {
+          "label": "Rendi i margini della sezione uguali al tema"
+        }
+      },
+      "presets": {
+        "name": "App"
       }
     }
   }

@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Dawn",
-    "theme_version": "1.0.0",
+    "theme_version": "1.1.0",
     "theme_author": "Shopify",
     "theme_documentation_url": "https://shopify.dev/themes/tools/dawn",
     "theme_support_url": "https://support.shopify.com/"
@@ -167,33 +167,32 @@
     ]
   },
   {
+    "name": "t:settings_schema.layout.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "page_width",
+        "options": [
+          {
+            "value": "1200",
+            "label": "t:settings_schema.layout.settings.page_width.options__1.label"
+          },
+          {
+            "value": "1600",
+            "label": "t:settings_schema.layout.settings.page_width.options__2.label"
+          }
+        ],
+        "default": "1600",
+        "label": "t:settings_schema.layout.settings.page_width.label"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.social-media.name",
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.social-media.settings.header__1.content"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_facebook",
-        "default": true,
-        "label": "t:settings_schema.social-media.settings.share_facebook.label"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_twitter",
-        "default": true,
-        "label": "t:settings_schema.social-media.settings.share_twitter.label"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_pinterest",
-        "default": true,
-        "label": "t:settings_schema.social-media.settings.share_pinterest.label"
-      },
-      {
-        "type": "header",
-        "content": "t:settings_schema.social-media.settings.header__2.content"
+        "content": "t:settings_schema.social-media.settings.header.content"
       },
       {
         "type": "text",
@@ -248,6 +247,36 @@
         "id": "social_vimeo_link",
         "label": "t:settings_schema.social-media.settings.social_vimeo_link.label",
         "info": "t:settings_schema.social-media.settings.social_vimeo_link.info"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.favicon.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "t:settings_schema.favicon.settings.favicon.label",
+        "info": "t:settings_schema.favicon.settings.favicon.info"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.currency_format.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.currency_format.settings.content"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.currency_format.settings.paragraph"
+      },
+      {
+        "type": "checkbox",
+        "id": "currency_code_enabled",
+        "label": "t:settings_schema.currency_format.settings.currency_code_enabled.label",
+        "default": true
       }
     ]
   }

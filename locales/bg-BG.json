@@ -44,10 +44,10 @@
       "item_added": "Артикулът е добавен в количката"
     },
     "share": {
-      "copy_to_clipboard": "Копиране на URL адреса в клипборда",
+      "copy_to_clipboard": "Копиране на връзката",
       "share": "Споделяне",
-      "share_url": "Споделяне на URL адрес",
-      "success_message": "Копирано в клипборда."
+      "share_url": "Връзка",
+      "success_message": "Връзката е копирана в клипборда."
     }
   },
   "date_formats": {
@@ -72,7 +72,8 @@
     "next_slide": "Плъзгане надясно",
     "previous_slide": "Плъзгане наляво",
     "loading": "Зареждане...",
-    "of": "от"
+    "of": "от",
+    "skip_to_product_info": "Прескочи към информацията за продукта"
   },
   "blogs": {
     "article": {
@@ -132,6 +133,12 @@
         "pick_up_unavailable_at_html": "В момента няма възможност за взимане от <span class=\"color-foreground\">{{ location_name }}</span>",
         "unavailable": "Не може да се зареди възможността за взимане",
         "refresh": "Обнови"
+      },
+      "media": {
+        "open_featured_media": "Отваряне на актуалната мултимедия в изглед на галерия",
+        "open_media": "Отваряне на мултимедия {{ index }} в изглед на галерия",
+        "play_model": "Възпроизвеждане с 3D Viewer",
+        "play_video": "Възпроизвеждане на видеоклип"
       }
     },
     "modal": {
@@ -197,7 +204,11 @@
         "quantity": "Количество"
       },
       "update": "Актуализиране",
-      "note": "Специални инструкции за поръчката"
+      "note": "Специални инструкции за поръчката",
+      "login": {
+        "title": "Имате профил?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Влезте</a> за по-бързо преминаване към плащане."
+      }
     },
     "footer": {
       "payment": "Начини на плащане",
@@ -217,7 +228,7 @@
     },
     "collection_template": {
       "title": "Колекция",
-      "sort_by_label": "Сортиране по",
+      "sort_by_label": "Сортиране по:",
       "sort_button": "Сортиране",
       "empty": "Не са открити продукти",
       "apply": "Приложи",
@@ -225,7 +236,7 @@
       "clear_all": "Изчисти всички",
       "from": "От",
       "filter_and_sort": "Филтриране и сортиране",
-      "filter_by_label": "Филтриране по",
+      "filter_by_label": "Филтър:",
       "filter_button": "Филтър",
       "filters_selected": {
         "one": "Избрани: {{ count }}",
@@ -236,9 +247,16 @@
       "to": "До",
       "use_fewer_filters_html": "Използвайте по-малко филтри или <a class=\"{{ class }}\" href=\"{{ link }}\">изчистете всички</a>",
       "product_count": {
-        "one": "Показан {{ product_count }} от {{ count }} продукт",
-        "other": "Показани {{ product_count }} от {{ count }} продукта"
+        "one": "{{ product_count }} от {{ count }} продукт",
+        "other": "{{ product_count }} от {{ count }} продукта"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} продукт",
+        "other": "{{ count }} продукта"
       }
+    },
+    "video": {
+      "load_video": "Зареждане на видео: {{ description }}"
     }
   },
   "localization": {

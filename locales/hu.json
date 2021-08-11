@@ -44,10 +44,10 @@
       "item_added": "Betettük a terméket a kosárba"
     },
     "share": {
-      "copy_to_clipboard": "URL-cím vágólapra másolása",
+      "copy_to_clipboard": "Hivatkozás másolása",
       "share": "Megosztás",
-      "share_url": "URL-cím megosztása",
-      "success_message": "A vágólapra másoltuk az URL-címet."
+      "share_url": "Hivatkozás",
+      "success_message": "A vágólapra másoltuk a hivatkozást."
     }
   },
   "date_formats": {
@@ -72,7 +72,8 @@
     "next_slide": "Következő dia",
     "previous_slide": "Előző dia",
     "loading": "Betöltés folyamatban…",
-    "of": "/"
+    "of": "/",
+    "skip_to_product_info": "Kihagyás, és ugrás a termékadatokra"
   },
   "blogs": {
     "article": {
@@ -132,6 +133,12 @@
         "pick_up_unavailable_at_html": "Személyesen egyelőre nem vehető át itt: <span class=\"color-foreground\">{{ location_name }}</span>",
         "unavailable": "Nem sikerült betölteni az átvehetőségi adatokat",
         "refresh": "Frissítés"
+      },
+      "media": {
+        "open_featured_media": "Kiemelt médiafájl megnyitása galérianézetben",
+        "open_media": "{{ index }}. médiafájl megnyitása galérianézetben",
+        "play_model": "Lejátszás a 3D-megjelenítőben",
+        "play_video": "Videó lejátszása"
       }
     },
     "modal": {
@@ -184,7 +191,7 @@
       "new_subtotal": "Új részösszeg:",
       "note": "Megjegyzések a rendeléssel kapcsolatban",
       "checkout": "Megrendelés",
-      "empty": "A kosarad üres",
+      "empty": "A kosarad üres.",
       "cart_error": "Hiba történt a kosár frissítése közben. Próbálkozz újra.",
       "cart_quantity_error_html": "Ebből a termékből csak [quantity] darabot rakhatsz a kosárba.",
       "taxes_and_shipping_policy_at_checkout_html": "Az adókat és a <a href=\"{{ link }}\">szállítási költséget</a> a megrendeléskor számítjuk ki",
@@ -197,7 +204,11 @@
         "total": "Végösszeg",
         "quantity": "Mennyiség"
       },
-      "update": "Frissítés"
+      "update": "Frissítés",
+      "login": {
+        "title": "Már van fiókod?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Jelentkezz be</a> a gyorsabb fizetéshez."
+      }
     },
     "footer": {
       "payment": "Fizetési módok",
@@ -217,7 +228,7 @@
     },
     "collection_template": {
       "title": "Kollekció",
-      "sort_by_label": "Rendezési szempont",
+      "sort_by_label": "Rendezési szempont:",
       "sort_button": "Rendezés",
       "empty": "Nincs találat",
       "apply": "Alkalmaz",
@@ -225,20 +236,27 @@
       "clear_all": "Az összes törlése",
       "from": "Ettől:",
       "filter_and_sort": "Szűrés és rendezés",
-      "filter_by_label": "Szűrési szempont",
+      "filter_by_label": "Szűrés:",
       "filter_button": "Szűrés",
       "max_price": "A legmagasabb ár {{ price }}",
       "reset": "Alaphelyzet",
       "to": "Eddig:",
       "use_fewer_filters_html": "Használj kevesebb szűrőt, vagy <a class=\"{{ class }}\" href=\"{{ link }}\">töröld az összeset</a>.",
       "product_count": {
-        "one": "{{ count }}/{{ product_count }} termék megjelenítve",
-        "other": "{{ count }}/{{ product_count }} termék megjelenítve"
+        "one": "{{ count }}/{{ product_count }} termék",
+        "other": "{{ count }}/{{ product_count }} termék"
       },
       "filters_selected": {
         "one": "{{ count }} elem kijelölve",
         "other": "{{ count }} elem kijelölve"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} termék",
+        "other": "{{ count }} termék"
       }
+    },
+    "video": {
+      "load_video": "Videó betöltése: {{ description }}"
     }
   },
   "localization": {
