@@ -7,7 +7,7 @@
     "build": "NODE_ENV=production postcss src/index.css -o assets/index.css",
     "watch": "npm-run-all -p watch:*",
     "watch:css": "postcss src/index.css -o assets/index.css --watch",
-    "watch:theme": "shopify theme serve",
+    "watch:js": "npx webpack --watch",
     "start": "npm run watch"
   },
   "keywords": [
@@ -16,12 +16,21 @@
   ],
   "author": "Wessel van Ree <hello@wesselvanree.com>",
   "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.13.13",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
     "autoprefixer": "^10.2.6",
+    "babel-loader": "^8.2.2",
+    "glob": "^7.1.7",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.3.5",
     "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.2.4",
-    "npm-run-all": "^4.1.5"
-  },
-  "dependencies": {}
+    "webpack": "^5.42.0",
+    "webpack-cli": "^4.7.2"
+  }
 }
