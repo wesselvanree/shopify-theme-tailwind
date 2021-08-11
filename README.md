@@ -39,7 +39,7 @@ performance of your theme on every push.
 ### Disadvantages
 
 - Because an extra build step is involved, you need to manually copy changes
-  made in the theme editor from Shopify. Those changes will be committed to the
+  made in the Shopify theme editor. Those changes will be committed to the
   `dist` branch so you can copy the committed files.
 - The tailwind `normalize.css` breaks some default styling of the Dawn theme.
 - The Dawn theme contains the following line in some CSS files:
