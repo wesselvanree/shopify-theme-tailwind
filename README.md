@@ -12,17 +12,22 @@ development using Tailwind CSS and the default Dawn theme.
 
 A short description of this workflow:
 
-- Edit theme locally using the Shopify CLI and Tailwind
+- Edit theme locally using the Shopify CLI, Tailwind and Webpack
 - Commit changes to feature branch
 - Merge feature branch with main branch once feature is implemented
-- Automatically publish build to dist branch using Github Actions
-- Sync Shopify store with dist branch
+- Automatically publish the production build to the `dist` branch using Github
+  Actions
+- Shopify automatically syncs with the `dist` branch.
 
 ### Technologies used
 
 - Tailwind CSS
   - The main css file is located in `src/index.css`
   - This file will be built to `assets/index.css`
+- Webpack
+  - All `src/entries/**.js` files will be sourced as webpack entry and the
+    output file can be found in the `assets` directory. All entries get the
+    extension `.bundle.js` instead of `.js`.
 - Shopify CLI
 - Github Actions to deploy the theme to the dist branch on push to the main
   branch
@@ -31,13 +36,31 @@ You can copy the Lighthouse Github Action from the original
 [Dawn theme](https://github.com/Shopify/dawn) repository to track the
 performance of your theme on every push.
 
-## Prerequisites
+### Disadvantages
+
+- Because an extra build step is involved, you need to manually copy changes
+  made in the theme editor in Shopify. Those changes will be committed to the
+  `dist` branch so you can copy the committed files.
+- The tailwind `normalize.css` breaks some default styling of the Dawn theme.
+- The Dawn theme contains the following line in some CSS files:
+  ```css
+  html {
+    font-size: 62.5%;
+  }
+  ```
+  Because of this line, the Tailwind font sizes and spacing do not look as
+  expected. Please customize `tailwind.config.js` to edit the appearance of the
+  utility classes.
+
+## Getting started
+
+### Prerequisites
 
 - The
   [shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli)
   is installed on your machine.
 
-## Installation
+### Installation
 
 Run the following commands:
 
@@ -61,18 +84,43 @@ the Shopify Github integration to sync your theme with the dist branch by going
 to `your admin dashboard` > `Online Store` > `Themes` > `Add Theme` >
 `Connect from Github`.
 
+### Using React
+
+To use React, install the following packages:
+
+```
+npm install react react-dom
+```
+
+Now you can use React in your javascript files.
+
 ## Usage
 
 ### Development
 
-First, log in to your store if you was not logged in already.
+You will need 2 terminal windows:
 
-```bash
-shopify login --store your-store-name.myshopify.com
+1. Serve your Shopify theme
+
+   - First, log in to your store if you was not logged in already.
+     ```bash
+     shopify login --store your-store-name.myshopify.com
+     ```
+   - Serve your theme to your development store
+     ```bash
+     shopify theme serve
+     ```
+
+2. Compile your code: in a separate terminal window, run `npm start` to start
+   watch for file changes and build development bundles.
+
+If you prefer to use one single terminal window, you can add this script to
+`package.json` underneath `watch:js`:
+
+```json
+// package.json
+"watch:theme": "shopify theme serve"
 ```
-
-Run `npm start`. This command will watch your files, build on change and update
-the Shopify theme preview.
 
 ### Production
 
@@ -88,19 +136,85 @@ for production. You can use the
 [Shopify Github integration](https://shopify.dev/themes/getting-started/create#step-6-install-the-shopify-github-integration-and-connect-your-branch-to-your-store)
 to track a branch in your Github repository.
 
+## Example using React
+
+First, install `react` and `react-dom`:
+
+```
+npm install react react-dom
+```
+
+Then paste the following code inside `src/entries/index.js`:
+
+```js
+import React, {useState} from 'react';
+import ReactDOM from 'react-dom';
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  const increase = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  const decrease = () => {
+    setCount(prevCount => prevCount - 1);
+  };
+
+  return (
+    <div className="px-5 py-28 max-w-md mx-auto">
+      <h2 className="text-5xl font-bold">React example</h2>
+      <p className="text-3xl font-semibold">
+        Count: <span className="text-blue-600">{count}</span>
+      </p>
+      <div className="mt-8">
+        <button
+          onClick={decrease}
+          className="py-2 px-8 rounded border border-gray-300 hover:bg-gray-100 transition-colors mr-2"
+        >
+          Decrease
+        </button>
+        <button
+          onClick={increase}
+          className="py-2 px-8 rounded border border-gray-300 hover:bg-gray-100 transition-colors"
+        >
+          Increase
+        </button>
+      </div>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('react-root'));
+```
+
+Now we need to add the `react-root` element and `index.bundle.js` to a template
+to use it. I will add it to `layout/theme.liquid`:
+
+```html
+<!-- line 24 -->
+<script src="{{ 'index.js' | asset_url }}" defer="defer"></script>
+
+...
+
+<!-- line 118 -->
+<div id="react-root"></div>
+
+...
+```
+
+And now you can enjoy your React component.
+
 ## Final notes
+
+- Please do not use a npm package for everything, always consider if the package
+  is worth the larger bundle size. Adding
 
 ### Useful links
 
 - [shopify.dev](https://shopify.dev)
-- [Tools for building Shopfy themes](https://shopify.dev/themes/tools)
+- [Tools for building Shopify themes](https://shopify.dev/themes/tools)
 - [Version control for Shopify themes best practices](https://shopify.dev/themes/best-practices/version-control)
-
-### Things to keep in mind
-
-Using the built-in Shopify code editor would not be effective when using file
-transformations like this. The changes made by your merchant in the code editor
-would be overridden when you push new changes.
 
 ### Suggestions
 

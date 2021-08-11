@@ -10,3 +10,5 @@ Thumbs.db
 
 node_modules
 assets/index.css
+assets/*.LICENSE.txt
+assets/*.bundle.js
