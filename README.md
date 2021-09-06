@@ -40,7 +40,7 @@ performance of your theme on every push.
 
 - Because an extra build step is involved, you need to manually copy changes
   made in the Shopify theme editor. Those changes will be committed to the
-  `dist` branch so you can copy the committed files.
+  `dist` branch.
 - The tailwind `normalize.css` breaks some default styling of the Dawn theme.
 - The Dawn theme contains the following line in some CSS files:
   ```css
@@ -56,9 +56,8 @@ performance of your theme on every push.
 
 ### Prerequisites
 
-- The
-  [shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli)
-  is installed on your machine.
+- [shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli)
+- [Node.js](https://nodejs.org/)
 
 ### Installation
 
