@@ -56,7 +56,7 @@ performance of your theme on every push.
 
 ### Prerequisites
 
-- [shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli)
+- [Shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli)
 - [Node.js](https://nodejs.org/)
 
 ### Installation
