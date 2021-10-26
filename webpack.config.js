@@ -29,13 +29,18 @@ const getEntries = () => {
   return entries
 }
 
+const mode =
+  process.env.NODE_ENV === 'production' ? 'production' : 'development'
+console.log('Webpack running in ' + mode + ' mode')
+
 module.exports = {
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  mode: mode,
   entry: getEntries(),
   output: {
     path: path.resolve(__dirname, 'shopify/assets'),
     filename: '[name]',
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
