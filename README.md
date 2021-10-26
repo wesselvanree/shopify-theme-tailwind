@@ -3,8 +3,8 @@
 This repository contains a starting point for Shopify Online Store 2.0 Theme
 development using Tailwind CSS and the default Dawn theme.
 
-> :bulb: On june 29, Shopify introduced a new git-based workflow. To learn more,
-> visit the
+> :bulb: On june 29, 2021, Shopify introduced a git-based workflow. To learn
+> more, visit the
 > [create a theme guide](https://shopify.dev/themes/getting-started/create) or
 > visit [shopify.dev](https://shopify.dev).
 
@@ -23,14 +23,15 @@ A short description of this workflow:
 
 - Tailwind CSS
   - The main css file is located in `src/index.css`
-  - This file will be built to `assets/index.css`
+  - This file will be built to `shopify/assets/index.css`
 - Webpack
-  - All `src/entries/**.js` files will be sourced as webpack entry and the
-    output file can be found in the `assets` directory. All entries get the
-    extension `.bundle.js` instead of `.js`.
+  - All `src/entries/**.{js,jsx,ts,tsx}` files will be sourced as webpack entry
+    and the output file can be found in the `assets` directory. All entries get
+    the extension `.bundle.js` instead of `.{js,jsx,ts,tsx}`.
 - Shopify CLI
 - Github Actions to deploy the theme to the dist branch on push to the main
   branch
+- Github Actions to test for build errors on every Pull Request
 
 You can copy the Lighthouse Github Action from the original
 [Dawn theme](https://github.com/Shopify/dawn) repository to track the
@@ -69,14 +70,17 @@ cd shopify-theme-tailwind
 npm install
 ```
 
-Make sure the `assets/index.css` output file is included in the
-`layout/theme.liquid` file. Add this line of code under the base.css stylesheet
-tag.
+Make sure the `shopify/assets/index.css` output file is included in the
+`shopify/layout/theme.liquid` file. Add this line of code under the base.css
+stylesheet tag.
 
 ```liquid
-<!-- line 98 -->
+<!-- line 113 -->
 {{ 'index.css' | asset_url | stylesheet_tag }}
 ```
+
+The same holds for all `.bundle.js` files created by Webpack. You need to insert
+the script tags on the places where you want to use the Webpack bundle.
 
 Once you've made your first commit, a dist branch will be created on Github. Use
 the Shopify Github integration to sync your theme with the dist branch by going
@@ -113,13 +117,8 @@ You will need 2 terminal windows:
 2. Compile your code: in a separate terminal window, run `npm start` to start
    watch for file changes and build development bundles.
 
-If you prefer to use one single terminal window, you can add this script to
-`package.json` underneath `watch:js`:
-
-```json
-// package.json
-"watch:theme": "shopify theme serve"
-```
+If you prefer to use one single terminal window, you can customize the scripts
+in `package.json`.
 
 ### Production
 
@@ -146,19 +145,19 @@ npm install react react-dom
 Then paste the following code inside `src/entries/index.js`:
 
 ```js
-import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react'
+import ReactDOM from 'react-dom'
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   const increase = () => {
-    setCount(prevCount => prevCount + 1);
-  };
+    setCount(prevCount => prevCount + 1)
+  }
 
   const decrease = () => {
-    setCount(prevCount => prevCount - 1);
-  };
+    setCount(prevCount => prevCount - 1)
+  }
 
   return (
     <div className="px-5 py-28 max-w-md mx-auto">
@@ -181,10 +180,10 @@ const App = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-ReactDOM.render(<App />, document.getElementById('react-root'));
+ReactDOM.render(<App />, document.getElementById('react-root'))
 ```
 
 Now we need to add the `react-root` element and `index.bundle.js` to a template
