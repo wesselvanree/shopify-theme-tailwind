@@ -111,7 +111,7 @@ You will need 2 terminal windows:
      ```
    - Serve your theme to your development store
      ```bash
-     shopify theme serve
+     npm run shopify
      ```
 
 2. Compile your code: in a separate terminal window, run `npm start` to start
