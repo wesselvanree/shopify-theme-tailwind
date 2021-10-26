@@ -4,8 +4,8 @@
   "description": "A starting point for an Online Store 2.0 theme using Tailwind CSS",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm-run-all build:*",
-    "build:css": "cross-env NODE_ENV=production postcss src/index.css -o shopify/assets/index.css",
+    "build": "cross-env NODE_ENV=production npm-run-all build:*",
+    "build:css": "postcss src/index.css -o shopify/assets/index.css",
     "build:js": "npx webpack",
     "watch:css": "postcss src/index.css -o shopify/assets/index.css --watch",
     "watch:js": "npx webpack --watch",
@@ -25,15 +25,21 @@
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.15.0",
     "autoprefixer": "^10.2.6",
     "babel-loader": "^8.2.2",
     "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
     "glob": "^7.1.7",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.3.5",
     "postcss-cli": "^8.3.1",
+    "postcss-minify": "^1.1.0",
+    "source-map-loader": "^3.0.0",
     "tailwindcss": "^2.2.4",
+    "typescript": "^4.4.4",
     "webpack": "^5.42.0",
     "webpack-cli": "^4.7.2"
-  }
+  },
+  "dependencies": {}
 }
