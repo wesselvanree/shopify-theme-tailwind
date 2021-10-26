@@ -4,11 +4,12 @@
   "description": "A starting point for an Online Store 2.0 theme using Tailwind CSS",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production postcss src/index.css -o assets/index.css",
-    "watch": "npm-run-all -p watch:*",
-    "watch:css": "postcss src/index.css -o assets/index.css --watch",
+    "build": "cross-env NODE_ENV=production postcss src/index.css -o shopify/assets/index.css",
+    "watch:css": "postcss src/index.css -o shopify/assets/index.css --watch",
     "watch:js": "npx webpack --watch",
-    "start": "npm run watch"
+    "start": "npm run start:bundle",
+    "start:bundle": "npm-run-all -p watch:*",
+    "start:shopify": "cd shopify && shopify theme serve"
   },
   "keywords": [
     "Shopify Theme",
@@ -16,7 +17,6 @@
   ],
   "author": "Wessel van Ree <hello@wesselvanree.com>",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/node": "^7.13.13",
@@ -25,6 +25,7 @@
     "@babel/preset-react": "^7.13.13",
     "autoprefixer": "^10.2.6",
     "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "glob": "^7.1.7",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.3.5",
