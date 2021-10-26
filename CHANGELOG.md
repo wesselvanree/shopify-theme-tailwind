@@ -1,3 +1,3 @@
 # Changelog
 
-See Releases for changelogs
+See Github Releases for changelog
