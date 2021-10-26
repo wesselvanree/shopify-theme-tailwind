@@ -4,12 +4,14 @@
   "description": "A starting point for an Online Store 2.0 theme using Tailwind CSS",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production postcss src/index.css -o shopify/assets/index.css",
+    "build": "npm-run-all build:*",
+    "build:css": "cross-env NODE_ENV=production postcss src/index.css -o shopify/assets/index.css",
+    "build:js": "npx webpack",
     "watch:css": "postcss src/index.css -o shopify/assets/index.css --watch",
     "watch:js": "npx webpack --watch",
     "start": "npm run start:bundle",
     "start:bundle": "npm-run-all -p watch:*",
-    "start:shopify": "cd shopify && shopify theme serve"
+    "shopify": "cd shopify && shopify theme serve"
   },
   "keywords": [
     "Shopify Theme",

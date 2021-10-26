@@ -7,7 +7,6 @@
       "login_form_password_placeholder": "Vaša lozinka",
       "login_form_error": "Pogrešna lozinka!",
       "login_form_submit": "Unesi",
-      "modal": "Dijaloški okvir za unos lozinke",
       "admin_link_html": "Jeste li vlasnik/vlasnica trgovine? <a href=\"/admin\" class=\"link underlined-link\">Prijavite se ovdje</a>",
       "powered_by_shopify_html": "Ovu trgovinu pokreće {{ shopify }}"
     },
@@ -45,16 +44,13 @@
     },
     "share": {
       "copy_to_clipboard": "Kopiraj poveznicu",
-      "share": "Podijeli",
       "share_url": "Poveznica",
-      "success_message": "Poveznica je kopirana u međuspremnik!"
+      "success_message": "Poveznica je kopirana u međuspremnik",
+      "close": "Zatvori dijeljenje"
     }
   },
-  "date_formats": {
-    "month_year": "%B %Y"
-  },
   "newsletter": {
-    "label": "Vaša adresa e-pošte",
+    "label": "Adresa e-pošte",
     "success": "Hvala što ste se pretplatili",
     "button_label": "Pretplatite se"
   },
@@ -73,13 +69,14 @@
       "external": "Otvara vanjsko web-mjesto."
     },
     "of": "od",
-    "skip_to_product_info": "Preskoči do informacija o proizvodu"
+    "skip_to_product_info": "Preskoči do informacija o proizvodu",
+    "total_reviews": "ukupan broj pregleda",
+    "star_reviews_info": "{{ rating_value }} od sljedećeg broja zvjezdica: {{ rating_max }}"
   },
   "blogs": {
     "article": {
       "blog": "Blog",
       "read_more_title": "Pročitajte više: {{ title }}",
-      "read_more": "Pročitajte više",
       "moderated": "Napominjemo da komentari moraju biti odobreni prije objave.",
       "comment_form_title": "Ostavite komentar",
       "name": "Ime",
@@ -140,10 +137,43 @@
         "open_media": "Otvori medij {{ index }} u prikazu galerije",
         "play_model": "Pokreni 3D preglednik",
         "play_video": "Reproduciraj videozapis"
-      }
+      },
+      "view_full_details": "Prikaži sve pojedinosti",
+      "include_taxes": "Porez je uključen.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Poštarina </a> se obračunava prilikom završetka kupnje."
     },
     "modal": {
       "label": "Galerija medijskih zapisa"
+    },
+    "facets": {
+      "apply": "Primijeni",
+      "clear": "Očisti",
+      "clear_all": "Očisti sve",
+      "from": "Od",
+      "filter_and_sort": "Filtriraj i razvrstaj",
+      "filter_by_label": "Filtriraj:",
+      "filter_button": "Filtriraj",
+      "max_price": "Najveća cijena iznosi {{ price }}",
+      "reset": "Resetiraj",
+      "sort_button": "Razvrstaj",
+      "sort_by_label": "Razvrstaj prema:",
+      "to": "Do",
+      "filters_selected": {
+        "one": "Odabrano ih je ovoliko: {{ count }}",
+        "other": "Odabrano ih je ovoliko: {{ count }}",
+        "few": "Odabrano ih je ovoliko: {{ count }}"
+      },
+      "product_count": {
+        "one": "{{ product_count }} od {{ count }} proizvoda",
+        "other": "{{ product_count }} od {{ count }} proizvoda",
+        "few": "{{ product_count }} od {{ count }} proizvoda"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} proizvod",
+        "other": "Broj proizvoda: {{ count }}",
+        "few": "Broj proizvoda: {{ count }}"
+      },
+      "clear_filter": "Očisti filtar"
     }
   },
   "templates": {
@@ -151,11 +181,18 @@
       "no_results": "Nije pronađen nijedan rezultat za „{{ terms }}”. Provjerite pravopis ili upotrijebite drugu riječ ili izraz.",
       "title": "Rezultati pretraživanja",
       "results_with_count": {
+        "one": "{{ count }} rezultat",
+        "other": "Broj rezultata: {{ count }}",
+        "few": "Broj rezultata: {{ count }}"
+      },
+      "page": "Stranica",
+      "products": "Proizvodi",
+      "search_for": "Tražite „{{ terms }}”",
+      "results_with_count_and_term": {
         "one": "Pronađen je {{ count }} rezultat za „{{ terms }}”",
         "other": "Pronađeno je ovoliko rezultata: {{ count }} za „{{ terms }}”",
         "few": "Pronađeno je ovoliko rezultata: {{ count }} za „{{ terms }}”"
-      },
-      "page": "Stranica"
+      }
     },
     "cart": {
       "cart": "Košarica"
@@ -194,9 +231,9 @@
       "new_subtotal": "Novi podzbroj",
       "note": "Ostale posebne upute",
       "checkout": "Završi kupnju",
-      "empty": "Vaša je košarica prazna.",
+      "empty": "Vaša je košarica prazna",
       "cart_error": "Došlo je do pogreške prilikom ažuriranja košarice. Pokušajte ponovno.",
-      "cart_quantity_error_html": "U košaricu možete dodati samo [quantity] kom ovog artikla.",
+      "cart_quantity_error_html": "U svoju košaricu možete dodati {{ quantity }} kom ovog artikla.",
       "taxes_and_shipping_policy_at_checkout_html": "Porezi i <a href=\"{{ link }}\">troškovi dostave</a> obračunavaju se prilikom završetka kupovine",
       "taxes_included_but_shipping_at_checkout": "Porez je uključen, a troškovi dostave obračunavaju se prilikom završetka kupovine",
       "taxes_included_and_shipping_policy_html": "Porez je uključen. <a href=\"{{ link }}\">Troškovi dostave</a> obračunavaju se prilikom završetka kupovine.",
@@ -214,8 +251,7 @@
       }
     },
     "footer": {
-      "payment": "Načini plaćanja",
-      "social_placeholder": "Pratite nas na društvenim mrežama!"
+      "payment": "Načini plaćanja"
     },
     "featured_blog": {
       "view_all": "Prikaži sve",
@@ -231,35 +267,8 @@
     },
     "collection_template": {
       "title": "Kolekcija",
-      "sort_by_label": "Poredaj po:",
-      "sort_button": "Poredaj",
       "empty": "Nije pronađen nijedan proizvod",
-      "apply": "Primijeni",
-      "clear": "Očisti",
-      "clear_all": "Očisti sve",
-      "from": "Od",
-      "filter_and_sort": "Filtriraj i razvrstaj",
-      "filter_by_label": "Filtriraj:",
-      "filter_button": "Filtriraj",
-      "max_price": "Najveća cijena iznosi {{ price }}",
-      "reset": "Resetiraj",
-      "to": "Do",
-      "use_fewer_filters_html": "Upotrijebite manje filtara ili <a class=\"{{ class }}\" href=\"{{ link }}\">očistite sve</a>",
-      "product_count": {
-        "one": "{{ product_count }} od {{ count }} proizvoda",
-        "other": "{{ product_count }} od {{ count }} proizvoda",
-        "few": "{{ product_count }} od {{ count }} proizvoda"
-      },
-      "filters_selected": {
-        "one": "Odabrano ih je ovoliko: {{ count }}",
-        "other": "Odabrano ih je ovoliko: {{ count }}",
-        "few": "Odabrano ih je ovoliko: {{ count }}"
-      },
-      "product_count_simple": {
-        "one": "{{ count }} proizvod",
-        "other": "Broj proizvoda: {{ count }}",
-        "few": "Broj proizvoda: {{ count }}"
-      }
+      "use_fewer_filters_html": "Upotrijebite manje filtara ili <a class=\"{{ class }}\" href=\"{{ link }}\">očistite sve</a>"
     },
     "video": {
       "load_video": "Učitaj videozapis: {{ description }}"

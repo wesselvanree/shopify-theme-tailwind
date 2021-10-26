@@ -7,7 +7,6 @@
       "login_form_password_placeholder": "Parola dvs.",
       "login_form_error": "Parolă incorectă!",
       "login_form_submit": "Accesați",
-      "modal": "Dialogul modal Parolă",
       "admin_link_html": "Sunteți proprietarul magazinului? <a href=\"/admin\" class=\"link underlined-link\">Conectați-vă aici</a>",
       "powered_by_shopify_html": "Acest magazin va fi pe platforma {{ shopify }}"
     },
@@ -45,16 +44,13 @@
     },
     "share": {
       "copy_to_clipboard": "Copiați linkul",
-      "share": "Distribuiți",
       "share_url": "Link",
-      "success_message": "Linkul a fost copiat în clipboard!"
+      "success_message": "Linkul a fost copiat în clipboard",
+      "close": "Închide partajarea"
     }
   },
-  "date_formats": {
-    "month_year": "%B %Y"
-  },
   "newsletter": {
-    "label": "E-mailul dvs.",
+    "label": "E-mail",
     "success": "Vă mulțumim că v-ați abonat",
     "button_label": "Abonați-vă"
   },
@@ -73,13 +69,14 @@
       "external": "Deschide site-ul extern."
     },
     "of": "din",
-    "skip_to_product_info": "Salt la informațiile despre produs"
+    "skip_to_product_info": "Salt la informațiile despre produs",
+    "total_reviews": "total recenzii",
+    "star_reviews_info": "{{ rating_value }} din {{ rating_max }} stele"
   },
   "blogs": {
     "article": {
       "blog": "Blog",
       "read_more_title": "Aflați mai mult: {{ title }}",
-      "read_more": "Aflați mai mult",
       "moderated": "Rețineți: comentariile trebuie să fie aprobate înainte de publicare.",
       "comment_form_title": "Scrieți un comentariu",
       "name": "Nume",
@@ -140,10 +137,43 @@
         "open_media": "Deschideți în vizualizarea galerie conținutul media {{ index }}",
         "play_model": "Redați în vizualizatorul 3D",
         "play_video": "Redați videoclipul"
-      }
+      },
+      "view_full_details": "Vedeți detaliile complete",
+      "include_taxes": "Taxe incluse.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Taxele de expediere</a> sunt calculate la finalizarea comenzii."
     },
     "modal": {
       "label": "Galerie media"
+    },
+    "facets": {
+      "apply": "Aplică",
+      "clear": "Golește",
+      "clear_all": "Golește tot",
+      "from": "De la",
+      "filter_and_sort": "Filtrează și sortează",
+      "filter_by_label": "Filtrează:",
+      "filter_button": "Filtrează",
+      "max_price": "Cel mai mare preț este {{ price }}",
+      "reset": "Resetează",
+      "sort_button": "Sortează",
+      "sort_by_label": "Sortează după:",
+      "to": "Către",
+      "filters_selected": {
+        "one": "{{ count }} selectat",
+        "other": "{{ count }} selectate",
+        "few": "{{ count }} selectate"
+      },
+      "product_count": {
+        "one": "{{ product_count }} din {{ count }} produs",
+        "other": "{{ product_count }} din {{ count }} produse",
+        "few": "{{ product_count }} din {{ count }} produse"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} produs",
+        "other": "{{ count }} produse",
+        "few": "{{ count }} produse"
+      },
+      "clear_filter": "Elimină filtrul"
     }
   },
   "templates": {
@@ -151,11 +181,18 @@
       "no_results": "Nu s-au găsit rezultate pentru „{{ terms }}”. Verificați ortografia sau utilizați alt cuvânt sau altă expresie.",
       "title": "Rezultatele căutării",
       "results_with_count": {
+        "one": "{{ count }} rezultat",
+        "other": "{{ count }} rezultate",
+        "few": "{{ count }} rezultate"
+      },
+      "page": "Pagină",
+      "products": "Produse",
+      "search_for": "Caută „{{ terms }}”",
+      "results_with_count_and_term": {
         "one": "S-a găsit {{ count }} rezultat pentru „{{ terms }}”",
         "other": "S-au găsit {{ count }} rezultate pentru „{{ terms }}”",
         "few": "S-au găsit {{ count }} rezultate pentru „{{ terms }}”"
-      },
-      "page": "Pagină"
+      }
     },
     "cart": {
       "cart": "Coș"
@@ -194,9 +231,9 @@
       "new_subtotal": "Subtotal nou",
       "note": "Instrucțiuni speciale legate de comandă",
       "checkout": "Finalizați comanda",
-      "empty": "Coșul tău este gol.",
+      "empty": "Coșul dvs. este gol",
       "cart_error": "A apărut o eroare în timpul actualizării coșului. Încercați din nou.",
-      "cart_quantity_error_html": "Cantitatea maximă pe care o puteți adăuga în coș din acest articol: [quantity].",
+      "cart_quantity_error_html": "Cantitatea maximă pe care o poți adăuga în coș din acest articol: {{ quantity }}.",
       "taxes_and_shipping_policy_at_checkout_html": "Taxele și <a href=\"{{ link }}\">transportul</a> sunt calculate la finalizarea comenzii",
       "taxes_included_but_shipping_at_checkout": "Taxele sunt incluse și transportul este calculat la finalizarea comenzii",
       "taxes_included_and_shipping_policy_html": "Taxele sunt incluse. <a href=\"{{ link }}\">Transportul</a> este calculat la finalizarea comenzii.",
@@ -214,8 +251,7 @@
       }
     },
     "footer": {
-      "payment": "Metode de plată",
-      "social_placeholder": "Urmăriți-ne pe rețelele sociale"
+      "payment": "Metode de plată"
     },
     "featured_blog": {
       "view_all": "Afișați tot",
@@ -231,35 +267,8 @@
     },
     "collection_template": {
       "title": "Colecție",
-      "sort_by_label": "Sortează după:",
-      "sort_button": "Sortați",
       "empty": "Nu s-au găsit produse",
-      "apply": "Aplicați",
-      "clear": "Goliți",
-      "clear_all": "Goliți tot",
-      "from": "De la",
-      "filter_and_sort": "Filtrați și sortați",
-      "filter_by_label": "Filtrează:",
-      "filter_button": "Filtrați",
-      "max_price": "Cel mai mare preț este {{ price }}",
-      "reset": "Resetare",
-      "to": "Către",
-      "use_fewer_filters_html": "Utilizați mai puține filtre sau <a class=\"{{ class }}\" href=\"{{ link }}\">goliți tot</a>",
-      "product_count": {
-        "one": "{{ product_count }} din {{ count }} produs",
-        "other": "{{ product_count }} din {{ count }} produse",
-        "few": "{{ product_count }} din {{ count }} produse"
-      },
-      "filters_selected": {
-        "one": "{{ count }} selectate",
-        "other": "{{ count }} selectate",
-        "few": "{{ count }} selectate"
-      },
-      "product_count_simple": {
-        "one": "{{ count }} produs",
-        "other": "{{ count }} produse",
-        "few": "{{ count }} produse"
-      }
+      "use_fewer_filters_html": "Utilizați mai puține filtre sau <a class=\"{{ class }}\" href=\"{{ link }}\">goliți tot</a>"
     },
     "video": {
       "load_video": "Încarcă clipul video: {{ description }}"

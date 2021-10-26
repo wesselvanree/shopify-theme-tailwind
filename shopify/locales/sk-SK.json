@@ -7,7 +7,6 @@
       "login_form_password_placeholder": "Vaše heslo",
       "login_form_error": "Nesprávne heslo!",
       "login_form_submit": "Prejsť",
-      "modal": "Modálne okno hesla",
       "admin_link_html": "Ste vlastníkom obchodu? <a href=\"/admin\" class=\"link underlined-link\">Prihláste sa tu</a>",
       "powered_by_shopify_html": "Tento obchod bude používať technológiu {{ shopify }}"
     },
@@ -45,16 +44,13 @@
     },
     "share": {
       "copy_to_clipboard": "Kopírovať prepojenie",
-      "share": "Zdieľať",
       "share_url": "Prepojenie",
-      "success_message": "Prepojenie sa skopírovalo do schránky."
+      "success_message": "Prepojenie sa skopírovalo do schránky",
+      "close": "Ukončiť zdieľanie"
     }
   },
-  "date_formats": {
-    "month_year": "%B %Y"
-  },
   "newsletter": {
-    "label": "Váš e-mail",
+    "label": "E-mail",
     "success": "Ďakujeme, že ste sa prihlásili na odber správ",
     "button_label": "Prihlásiť sa na odber"
   },
@@ -73,13 +69,14 @@
       "external": "Otvorí externú webovú lokalitu."
     },
     "of": "z",
-    "skip_to_product_info": "Prejsť na informácie o produkte"
+    "skip_to_product_info": "Prejsť na informácie o produkte",
+    "total_reviews": "celkový počet recenzií",
+    "star_reviews_info": "Počet hviezdičiek: {{ rating_value }}/{{ rating_max }}"
   },
   "blogs": {
     "article": {
       "blog": "Blog",
       "read_more_title": "Prečítajte si viac: {{ title }}",
-      "read_more": "Prečítať si viac",
       "moderated": "Upozorňujeme, že komentáre musia byť pred publikovaním schválené.",
       "comment_form_title": "Pridať komentár",
       "name": "Meno",
@@ -141,10 +138,46 @@
         "open_media": "Otvoriť médium {{ index }} v zobrazení galérie",
         "play_model": "Prehrať 3D zobrazovač",
         "play_video": "Prehrať video"
-      }
+      },
+      "view_full_details": "Zobraziť všetky podrobnosti",
+      "include_taxes": "Vrátane dane.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Doprava</a> sa vypočíta pri platbe."
     },
     "modal": {
       "label": "Galéria médií"
+    },
+    "facets": {
+      "apply": "Použiť",
+      "clear": "Vymazať",
+      "clear_all": "Vymazať všetko",
+      "from": "Od",
+      "filter_and_sort": "Filtrovať a zoradiť",
+      "filter_by_label": "Filtrovať:",
+      "filter_button": "Filtrovať",
+      "max_price": "Najvyššia cena je {{ price }}",
+      "reset": "Resetovať",
+      "sort_button": "Zoradiť",
+      "sort_by_label": "Zoradiť podľa:",
+      "to": "Do",
+      "filters_selected": {
+        "one": "Vybrané: {{ count }}",
+        "other": "Vybrané: {{ count }}",
+        "few": "Vybrané: {{ count }}",
+        "many": "Vybrané: {{ count }}"
+      },
+      "product_count": {
+        "one": "Produkt {{ product_count }} z {{ count }}",
+        "other": "Produkty {{ product_count }} z {{ count }}",
+        "few": "Produkty {{ product_count }} z {{ count }}",
+        "many": "Produkty {{ product_count }} z {{ count }}"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} produkt",
+        "other": "Počet produktov: {{ count }}",
+        "few": "Počet produktov: {{ count }}",
+        "many": "Počet produktov: {{ count }}"
+      },
+      "clear_filter": "Vymazať filter"
     }
   },
   "templates": {
@@ -152,12 +185,20 @@
       "no_results": "Pre výraz „{{ terms }}“ sa nenašli žiadne výsledky. Skontrolujte pravopis alebo použite iné slovo či slovné spojenie.",
       "title": "Výsledky vyhľadávania",
       "results_with_count": {
+        "one": "{{ count }} výsledok",
+        "other": "Počet výsledkov: {{ count }}",
+        "few": "Počet výsledkov: {{ count }}",
+        "many": "Počet výsledkov: {{ count }}"
+      },
+      "page": "Strana",
+      "products": "Produkty",
+      "search_for": "Vyhľadať výraz „{{ terms }}“",
+      "results_with_count_and_term": {
         "one": "Pre výraz „{{ terms }}“ sa našiel {{ count }} výsledok",
         "other": "Pre výraz „{{ terms }}“ sa našiel tento počet výsledkov: {{ count }}",
         "few": "Pre výraz „{{ terms }}“ sa našiel tento počet výsledkov: {{ count }}",
         "many": "Pre výraz „{{ terms }}“ sa našiel tento počet výsledkov: {{ count }}"
-      },
-      "page": "Strana"
+      }
     },
     "cart": {
       "cart": "Košík"
@@ -197,9 +238,9 @@
       "new_subtotal": "Nový medzisúčet",
       "note": "Špeciálne pokyny k objednávke",
       "checkout": "Platba",
-      "empty": "Váš košík je prázdny.",
+      "empty": "Váš košík je prázdny",
       "cart_error": "Pri aktualizácii košíka sa vyskytla chyba. Skúste to znova.",
-      "cart_quantity_error_html": "Do košíka môžete túto položku pridať len v počte [quantity].",
+      "cart_quantity_error_html": "Do košíka môžete túto položku pridať len v počte {{ quantity }}.",
       "taxes_and_shipping_policy_at_checkout_html": "Dane a <a href=\"{{ link }}\">doprava</a> sa vypočítajú pri platbe",
       "taxes_included_but_shipping_at_checkout": "Dane sa zahrnú a doprava sa vypočíta pri platbe",
       "taxes_included_and_shipping_policy_html": "Vrátane dane. <a href=\"{{ link }}\">Doprava</a> sa vypočíta v pokladni.",
@@ -217,8 +258,7 @@
       }
     },
     "footer": {
-      "payment": "Spôsoby platby",
-      "social_placeholder": "Sledujte nás v sociálnych médiách"
+      "payment": "Spôsoby platby"
     },
     "featured_blog": {
       "view_all": "Zobraziť všetko",
@@ -234,38 +274,8 @@
     },
     "collection_template": {
       "title": "Kolekcia",
-      "sort_by_label": "Zoradiť podľa:",
-      "sort_button": "Zoradiť",
       "empty": "Nenašli sa žiadne produkty",
-      "apply": "Použiť",
-      "clear": "Vymazať",
-      "clear_all": "Vymazať všetko",
-      "from": "Od",
-      "filter_and_sort": "Filtrovať a zoradiť",
-      "filter_by_label": "Filtrovať:",
-      "filter_button": "Filtrovať",
-      "max_price": "Najvyššia cena je {{ price }}",
-      "reset": "Resetovať",
-      "to": "Do",
-      "use_fewer_filters_html": "Použiť menej filtrov alebo <a class=\"{{ class }}\" href=\"{{ link }}\">vymazať všetko</a>",
-      "product_count": {
-        "one": "Produkt {{ product_count }} z {{ count }}",
-        "other": "Produkty {{ product_count }} z {{ count }}",
-        "few": "Produkty {{ product_count }} z {{ count }}",
-        "many": "Produkty {{ product_count }} z {{ count }}"
-      },
-      "filters_selected": {
-        "one": "Vybrané: {{ count }}",
-        "other": "Vybrané: {{ count }}",
-        "few": "Vybrané: {{ count }}",
-        "many": "Vybrané: {{ count }}"
-      },
-      "product_count_simple": {
-        "one": "{{ count }} produkt",
-        "other": "Počet produktov: {{ count }}",
-        "few": "Počet produktov: {{ count }}",
-        "many": "Počet produktov: {{ count }}"
-      }
+      "use_fewer_filters_html": "Použiť menej filtrov alebo <a class=\"{{ class }}\" href=\"{{ link }}\">vymazať všetko</a>"
     },
     "video": {
       "load_video": "Načítať video: {{ description }}"

@@ -1,4 +1,4 @@
-.customer:not(.account, .order) {
+.customer:not(.account):not(.order) {
   margin: 6rem auto 9rem;
   max-width: 33.4rem;
   padding: 0 1.5rem;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (min-width: 750px) {
-  .customer:not(.account, .order) {
+  .customer:not(.account):not(.order) {
     max-width: 47.8rem;
   }
 }
@@ -20,7 +20,7 @@
 }
 
 .customer ul {
-  line-height: 1.6;
+  line-height: calc(1 + 0.6 / var(--font-body-scale));
   padding-left: 4.4rem;
   text-align: left;
   margin-bottom: 4rem;
@@ -36,12 +36,12 @@
 }
 
 .customer h2.form__message {
-  font-size: 1.8rem;
+  font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
 
 @media only screen and (min-width: 750px) {
   .customer h2.form__message {
-    font-size: 2.2rem;
+    font-size: calc(var(--font-heading-scale) * 2.2rem);
   }
 }
 
@@ -57,7 +57,7 @@
 .customer table {
   table-layout: auto;
   border-collapse: collapse;
-  border-bottom: 0.01rem solid rgba(var(--color-foreground), 0.2);
+  border-bottom: 0.01rem solid rgba(var(--color-foreground), 0.08);
   box-shadow: none;
   width: 100%;
   font-size: 1.6rem;
@@ -67,7 +67,14 @@
 @media screen and (min-width: 750px) {
   .customer table {
     border: none;
-    box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.2);
+    box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.08);
+  }
+}
+
+@media screen and (forced-colors: active) {
+  .customer table {
+    border-top: 0.1rem solid transparent;
+    border-bottom: 0.1rem solid transparent;
   }
 }
 
@@ -147,12 +154,18 @@
 }
 
 .customer tbody tr {
-  border-top: 0.01rem solid rgba(var(--color-foreground), 0.2);
+  border-top: 0.01rem solid rgba(var(--color-foreground), 0.08);
 }
 
 @media screen and (min-width: 750px) {
   .customer tbody tr:first-of-type {
     border-top: none;
+  }
+}
+
+@media screen and (forced-colors: active) {
+  .customer tbody tr {
+    border-top: 0.1rem solid transparent;
   }
 }
 
@@ -197,7 +210,14 @@
   display: block;
   position: absolute;
   left: 0;
-  background: rgba(var(--color-foreground), 0.2);
+  background: rgba(var(--color-foreground), 0.08);
+}
+
+@media screen and (forced-colors: active) {
+  .customer thead::after,
+  .customer tfoot::before {
+    background: CanvasText;
+  }
 }
 
 /* mobile table overrides */
@@ -325,7 +345,7 @@
 .login h3 {
   margin-top: 1.5rem;
   text-align: left;
-  font-size: 1.6rem;
+  font-size: calc(var(--font-heading-scale) * 1.6rem);
 }
 
 #customer_login_guest button {
@@ -338,7 +358,7 @@
 }
 
 #recover:target {
-  display: inline;
+  display: block;
 }
 
 #recover:target + div {
@@ -348,6 +368,15 @@
 #recover:target ~ #login,
 #recover:target ~ #login + div {
   display: none;
+}
+
+#recover,
+#login {
+  scroll-margin-top: 20rem;
+}
+
+#recover {
+  margin-bottom: 0;
 }
 
 .activate button[name='decline'],
@@ -455,6 +484,7 @@
   padding: 1.1rem 1.5rem;
   text-decoration: none;
   box-shadow: 0 0 0 0.1rem rgba(var(--color-link), 0.2);
+  border: 0.1rem solid transparent;
   font-size: 1.2rem;
 }
 
@@ -471,15 +501,6 @@
   .order td:nth-last-child(-n + 3) {
     text-align: right;
   }
-}
-
-.order tbody td:nth-of-type(3) dd:nth-of-type(2) {
-  font-size: 1.1rem;
-  letter-spacing: 0.07rem;
-  line-height: 1.2;
-  margin-top: 0.2rem;
-  text-transform: uppercase;
-  color: var(--color-foreground-70);
 }
 
 .order tfoot tr:last-of-type td,
@@ -524,7 +545,7 @@
 
 .order .item-props > span {
   word-break: break-all;
-  line-height: 1.2;
+  line-height: calc(1 + 0.2 / var(--font-body-scale));
 }
 
 .order .fulfillment {
@@ -573,7 +594,7 @@
 }
 
 .order table a {
-  line-height: 1.3;
+  line-height: calc(1 + 0.3 / var(--font-body-scale));
 }
 
 .order tbody tr:first-of-type td:first-of-type > div {
@@ -595,7 +616,7 @@
 
 .order .properties span {
   display: block;
-  line-height: 1.2;
+  line-height: calc(1 + 0.2 / var(--font-body-scale));
 }
 
 .order svg {
@@ -610,11 +631,24 @@
 
 .order dd {
   margin-left: 0;
-  line-height: 1.3;
+  line-height: calc(1 + 0.3 / var(--font-body-scale));
 }
 
 .order dd s {
   color: rgba(var(--color-foreground), 0.7);
+}
+
+.order .unit-price {
+  font-size: 1.1rem;
+  letter-spacing: 0.07rem;
+  line-height: calc(1 + 0.2 / var(--font-body-scale));
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.order .regular-price {
+  font-size: 1.3rem;
 }
 
 /* Addresses */
@@ -679,13 +713,13 @@ li[data-address] {
 
 li[data-address] > h2 {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: calc(var(--font-heading-scale) * 1.8rem);
   margin-bottom: 0;
 }
 
 @media only screen and (min-width: 750px) {
   li[data-address] > h2 {
-    font-size: 2.2rem;
+    font-size: calc(var(--font-heading-scale) * 2.2rem);
   }
 }
 

@@ -18,7 +18,6 @@ class DetailsModal extends HTMLElement {
     );
 
     this.summaryToggle.setAttribute('role', 'button');
-    this.summaryToggle.setAttribute('aria-expanded', 'false');
   }
 
   isOpen() {
@@ -33,7 +32,7 @@ class DetailsModal extends HTMLElement {
   }
 
   onBodyClick(event) {
-    if (!this.contains(event.target)) this.close(false);
+    if (!this.contains(event.target) || event.target.classList.contains('modal-overlay')) this.close(false);
   }
 
   open(event) {
@@ -41,6 +40,7 @@ class DetailsModal extends HTMLElement {
       this.onBodyClickEvent || this.onBodyClick.bind(this);
     event.target.closest('details').setAttribute('open', true);
     document.body.addEventListener('click', this.onBodyClickEvent);
+    document.body.classList.add('overflow-hidden');
 
     trapFocus(
       this.detailsContainer.querySelector('[tabindex="-1"]'),
@@ -52,6 +52,7 @@ class DetailsModal extends HTMLElement {
     removeTrapFocus(focusToggle ? this.summaryToggle : null);
     this.detailsContainer.removeAttribute('open');
     document.body.removeEventListener('click', this.onBodyClickEvent);
+    document.body.classList.remove('overflow-hidden');
   }
 }
 

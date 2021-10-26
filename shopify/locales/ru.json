@@ -7,7 +7,6 @@
       "login_form_password_placeholder": "Ваш пароль",
       "login_form_error": "Неправильный пароль.",
       "login_form_submit": "Ввести",
-      "modal": "Модальное окно входа с паролем",
       "admin_link_html": "Вы владелец магазина? <a href=\"/admin\" class=\"link underlined-link\">Войдите здесь</a>",
       "powered_by_shopify_html": "Этот магазин работает на платформе {{ shopify }}"
     },
@@ -45,16 +44,13 @@
     },
     "share": {
       "copy_to_clipboard": "Копировать ссылку",
-      "share": "Поделиться",
       "share_url": "Ссылка",
-      "success_message": "Ссылка скопирована в буфер обмена."
+      "success_message": "Ссылка скопирована в буфер обмена.",
+      "close": "Свернуть функцию \"Поделиться\""
     }
   },
-  "date_formats": {
-    "month_year": "%B, %Y"
-  },
   "newsletter": {
-    "label": "Ваш адрес электронной почты",
+    "label": "Адрес электронной почты",
     "success": "Спасибо, что подписались!",
     "button_label": "Подписаться"
   },
@@ -73,13 +69,14 @@
       "external": "Открывает внешний сайт."
     },
     "of": "из",
-    "skip_to_product_info": "Перейти к информации о продукте"
+    "skip_to_product_info": "Перейти к информации о продукте",
+    "total_reviews": "всего отзывов",
+    "star_reviews_info": "{{ rating_value }} из {{ rating_max }} звезд"
   },
   "blogs": {
     "article": {
       "blog": "Блог",
       "read_more_title": "Узнать больше: {{ title }}",
-      "read_more": "Подробнее",
       "moderated": "Обратите внимание, что комментарии проходят одобрение перед публикацией.",
       "comment_form_title": "Комментировать",
       "name": "Имя",
@@ -141,10 +138,46 @@
         "open_media": "Открыть медиа-файлы {{ index }} в режиме галереи",
         "play_model": "Открыть объемную модель",
         "play_video": "Воспроизвести видео"
-      }
+      },
+      "view_full_details": "Просмотреть всю информацию",
+      "include_taxes": "Сумма налога включена.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Стоимость доставки</a> рассчитывается при оформлении заказа."
     },
     "modal": {
       "label": "Галерея мультимедиа"
+    },
+    "facets": {
+      "apply": "Добавить",
+      "clear": "Удалить",
+      "clear_all": "Удалить все",
+      "from": "От",
+      "filter_and_sort": "Фильтр и сортировка",
+      "filter_by_label": "Фильтр:",
+      "filter_button": "Фильтровать",
+      "max_price": "Максимальная цена: {{ price }}",
+      "reset": "Сбросить",
+      "sort_button": "Сортировка",
+      "sort_by_label": "Сортировка:",
+      "to": "Для",
+      "filters_selected": {
+        "one": "Выбрано: {{ count }}",
+        "other": "Выбрано: {{ count }}",
+        "few": "Выбрано: {{ count }}",
+        "many": "Выбрано: {{ count }}"
+      },
+      "product_count": {
+        "one": "{{ product_count }} из {{ count }} прод.",
+        "other": "{{ product_count }} из {{ count }} прод.",
+        "few": "{{ product_count }} из {{ count }} прод.",
+        "many": "{{ product_count }} из {{ count }} прод."
+      },
+      "product_count_simple": {
+        "one": "{{ count }} прод.",
+        "other": "Продуктов: {{ count }}",
+        "few": "Продуктов: {{ count }}",
+        "many": "Продуктов: {{ count }}"
+      },
+      "clear_filter": "Удалить фильтр"
     }
   },
   "templates": {
@@ -152,12 +185,20 @@
       "no_results": "По запросу «{{ terms }}» ничего не найдено. Проверьте правописание или выберите другие слова либо фразу.",
       "title": "Результаты поиска",
       "results_with_count": {
+        "one": "Результаты: {{ count }}",
+        "other": "Результаты: {{ count }}",
+        "few": "Результаты: {{ count }}",
+        "many": "Результаты: {{ count }}"
+      },
+      "page": "Страница",
+      "products": "Товары",
+      "search_for": "Поиск \"{{ terms }}\"",
+      "results_with_count_and_term": {
         "one": "{{ count }} рез. по запросу «{{ terms }}»",
         "other": "{{ count }} рез. по запросу «{{ terms }}»",
         "few": "{{ count }} рез. по запросу «{{ terms }}»",
         "many": "{{ count }} рез. по запросу «{{ terms }}»"
-      },
-      "page": "Страница"
+      }
     },
     "cart": {
       "cart": "Корзина"
@@ -199,7 +240,7 @@
       "checkout": "Оформить заказ",
       "empty": "Корзина пуста.",
       "cart_error": "Не удалось обновить корзину. Повторите попытку.",
-      "cart_quantity_error_html": "Максимально допустимое количество единиц этого товара в корзине: [количество].",
+      "cart_quantity_error_html": "Максимально допустимое количество единиц этого товара в корзине: {{ quantity }}.",
       "taxes_and_shipping_policy_at_checkout_html": "Налоги и стоимость <a href=\"{{ link }}\">доставки</a>, рассчитанные при оформлении заказа",
       "taxes_included_but_shipping_at_checkout": "Сумма налога и стоимость доставки, рассчитанные при оформлении заказа",
       "taxes_included_and_shipping_policy_html": "Налоги включены. <a href=\"{{ link }}\">Стоимость доставки</a> рассчитывается при оформлении заказа.",
@@ -217,8 +258,7 @@
       }
     },
     "footer": {
-      "payment": "Способы оплаты",
-      "social_placeholder": "Подпишитесь на нас в социальных сетях!"
+      "payment": "Способы оплаты"
     },
     "featured_blog": {
       "view_all": "Посмотреть все",
@@ -234,38 +274,8 @@
     },
     "collection_template": {
       "title": "Коллекция",
-      "sort_by_label": "Сортировка:",
-      "sort_button": "Сортировка",
-      "product_count": {
-        "one": "{{ product_count }} из {{ count }} прод.",
-        "other": "{{ product_count }} из {{ count }} прод.",
-        "few": "{{ product_count }} из {{ count }} прод.",
-        "many": "{{ product_count }} из {{ count }} прод."
-      },
       "empty": "Продукты не найдены",
-      "apply": "Добавить",
-      "clear": "Удалить",
-      "clear_all": "Удалить все",
-      "from": "От",
-      "filter_and_sort": "Фильтр и сортировка",
-      "filter_by_label": "Фильтр:",
-      "filter_button": "Фильтровать",
-      "max_price": "Максимальная цена: {{ price }}",
-      "reset": "Сбросить",
-      "to": "До",
-      "use_fewer_filters_html": "Используйте меньше фильтров или <a class=\"{{ class }}\" href=\"{{ link }}\">удалите фильтры</a>",
-      "filters_selected": {
-        "one": "Выбрано: {{ count }}",
-        "other": "Выбрано: {{ count }}",
-        "few": "Выбрано: {{ count }}",
-        "many": "Выбрано: {{ count }}"
-      },
-      "product_count_simple": {
-        "one": "{{ count }} прод.",
-        "other": "Продуктов: {{ count }}",
-        "few": "Продуктов: {{ count }}",
-        "many": "Продуктов: {{ count }}"
-      }
+      "use_fewer_filters_html": "Используйте меньше фильтров или <a class=\"{{ class }}\" href=\"{{ link }}\">удалите фильтры</a>"
     },
     "video": {
       "load_video": "Загрузить видео: {{ description }}"

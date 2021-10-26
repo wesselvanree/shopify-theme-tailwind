@@ -1,12 +1,15 @@
+.footer {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
 
-@media screen and (min-width: 750px) {
-  .footer {
-    border-top: 0.1rem solid rgba(var(--color-foreground), 0.2);
-  }
+.footer:not(.color-background-1) {
+  border-top: none;
+}
 
-  .footer:not(.color-background-1) {
-    border-top: none;
-  }
+.footer__content-top {
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+  display: block;
 }
 
 @media screen and (max-width: 749px) {
@@ -26,15 +29,10 @@
   }
 
   .footer__content-top {
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-bottom: 3rem;
+    padding-left: calc(4rem / var(--font-body-scale));
+    padding-right: calc(4rem / var(--font-body-scale));
   }
-}
-
-.footer__content-top {
-  padding-bottom: 5rem;
-  padding-top: 5rem;
-  display: block;
 }
 
 @media screen and (min-width: 750px) {
@@ -50,7 +48,7 @@
 }
 
 .footer__content-bottom {
-  border-top: solid 0.1rem rgba(var(--color-foreground), 0.2);
+  border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -159,12 +157,12 @@
 .footer-block__heading {
   margin-bottom: 2rem;
   margin-top: 0;
-  font-size: 1.6rem;
+  font-size: calc(var(--font-heading-scale) * 1.6rem);
 }
 
 @media screen and (min-width: 990px) {
   .footer-block__heading {
-    font-size: 1.8rem;
+    font-size: calc(var(--font-heading-scale) * 1.8rem);
   }
 }
 
@@ -193,6 +191,10 @@
   .footer-block__newsletter:not(:only-child) .footer__newsletter {
     justify-content: flex-start;
     margin: 0;
+  }
+
+  .footer-block__newsletter:not(:only-child) .newsletter-form__message--success {
+    left: auto;
   }
 }
 
@@ -224,7 +226,7 @@
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding: 1rem 1rem 0;
 }
 
 .footer__localization:empty {
@@ -309,7 +311,7 @@
   box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.55);
   position: relative;
   margin-bottom: 1.5rem;
-  border: 0;
+  border: 0.1rem solid transparent;
   padding-left: 1rem;
   text-align: left;
 }
@@ -362,12 +364,16 @@ noscript .localization-selector.link {
   animation: animateLocalization var(--duration-default) ease;
 }
 
-.footer__payment {
-  margin-top: 1.5rem;
+
+@media screen and (min-width: 750px) {
+  .footer__payment {
+    margin-top: 1.5rem;
+  }
 }
 
 .footer__copyright {
   text-align: center;
+  margin-top: 1.5rem;
 }
 
 @media screen and (min-width: 750px) {
