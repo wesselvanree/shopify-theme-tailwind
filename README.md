@@ -43,15 +43,6 @@ performance of your theme on every push.
   made in the Shopify theme editor. Those changes will be committed to the
   `dist` branch.
 - The tailwind `normalize.css` breaks some default styling of the Dawn theme.
-- The Dawn theme contains the following line in some CSS files:
-  ```css
-  html {
-    font-size: 62.5%;
-  }
-  ```
-  Because of this line, the Tailwind font sizes and spacing do not look as
-  expected. Please customize `tailwind.config.js` to edit the appearance of the
-  utility classes.
 
 ## Getting started
 
