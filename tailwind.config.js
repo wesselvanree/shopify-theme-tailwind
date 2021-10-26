@@ -3,7 +3,7 @@ require('dotenv').config()
 module.exports = {
   purge: {
     enabled: process.env.NODE_ENV === 'production',
-    content: ['./**/*.liquid'],
+    content: ['./**/*.liquid', 'src/**/*'],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {

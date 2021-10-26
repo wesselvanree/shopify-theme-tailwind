@@ -40,22 +40,16 @@ module.exports = {
     path: path.resolve(__dirname, 'shopify/assets'),
     filename: '[name]',
   },
-  devtool: 'inline-source-map',
   module: {
     rules: [
       {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        options: {
-          presets: [
-            ['@babel/preset-env', { targets: 'defaults' }],
-            '@babel/typescript',
-            '@babel/react',
-          ],
-          sourceType: 'unambiguous',
-        },
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
 }

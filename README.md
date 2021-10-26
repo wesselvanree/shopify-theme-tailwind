@@ -142,6 +142,12 @@ First, install `react` and `react-dom`:
 npm install react react-dom
 ```
 
+When using typescript, als install types:
+
+```
+npm install --save-dev @types/react @types/react-dom
+```
+
 Then paste the following code inside `src/entries/index.js`:
 
 ```js
@@ -204,9 +210,6 @@ to use it. I will add it to `layout/theme.liquid`:
 And now you can enjoy your React component.
 
 ## Final notes
-
-- Please do not use a npm package for everything, always consider if the package
-  is worth the larger bundle size.
 
 ### Further reading
 
