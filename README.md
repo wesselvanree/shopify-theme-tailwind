@@ -142,7 +142,7 @@ First, install `react` and `react-dom`:
 npm install react react-dom
 ```
 
-When using typescript, als install types:
+When using typescript, also install types:
 
 ```
 npm install --save-dev @types/react @types/react-dom
