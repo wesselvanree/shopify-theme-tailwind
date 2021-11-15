@@ -25,9 +25,9 @@ A short description of this workflow:
   - The main css file is located in `src/index.css`
   - This file will be built to `shopify/assets/index.css`
 - Webpack
-  - All `src/entries/**/*.{js,jsx,ts,tsx}` files will be sourced as webpack entry
-    and the output file can be found in the `assets` directory. All build bundles
-    get the extension `.bundle.js` instead of `.{js,jsx,ts,tsx}`.
+  - All `src/entries/**/*.{js,jsx,ts,tsx}` files will be sourced as webpack
+    entry and the output file can be found in the `assets` directory. All build
+    bundles get the extension `.bundle.js` instead of `.{js,jsx,ts,tsx}`.
 - Shopify CLI
 - Github Actions to deploy the theme to the dist branch on push to the main
   branch
@@ -58,6 +58,8 @@ Run the following commands:
 ```bash
 git clone git@github.com:wesselvanree/shopify-theme-tailwind.git
 cd shopify-theme-tailwind
+rm -rf .git
+git init
 npm install
 ```
 
@@ -142,7 +144,7 @@ npm install --save-dev @types/react @types/react-dom
 Then paste the following code inside `src/entries/index.js`:
 
 ```js
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import ReactDOM from 'react-dom'
 
 const App = () => {
