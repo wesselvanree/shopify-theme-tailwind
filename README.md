@@ -8,6 +8,10 @@ development using Tailwind CSS and the default Dawn theme.
 > [create a theme guide](https://shopify.dev/themes/getting-started/create) or
 > visit [shopify.dev](https://shopify.dev).
 
+> :warning: When you want to use React,
+> [Hydrogen](https://hydrogen.shopify.dev/) might be more useful for you than
+> this starter.
+
 ## Workflow
 
 A short description of this workflow:
@@ -126,81 +130,6 @@ Alternatively, you can create the build manually. Run `npm run build` to build
 for production. You can use the
 [Shopify Github integration](https://shopify.dev/themes/getting-started/create#step-6-install-the-shopify-github-integration-and-connect-your-branch-to-your-store)
 to track a branch in your Github repository.
-
-## Example using React
-
-First, install `react` and `react-dom`:
-
-```
-npm install react react-dom
-```
-
-When using typescript, also install types:
-
-```
-npm install --save-dev @types/react @types/react-dom
-```
-
-Then paste the following code inside `src/entries/index.js`:
-
-```js
-import React, {useState} from 'react'
-import ReactDOM from 'react-dom'
-
-const App = () => {
-  const [count, setCount] = useState(0)
-
-  const increase = () => {
-    setCount(prevCount => prevCount + 1)
-  }
-
-  const decrease = () => {
-    setCount(prevCount => prevCount - 1)
-  }
-
-  return (
-    <div className="px-5 py-28 max-w-md mx-auto">
-      <h2 className="text-5xl font-bold">React example</h2>
-      <p className="text-3xl font-semibold">
-        Count: <span className="text-blue-600">{count}</span>
-      </p>
-      <div className="mt-8">
-        <button
-          onClick={decrease}
-          className="py-2 px-8 rounded border border-gray-300 hover:bg-gray-100 transition-colors mr-2"
-        >
-          Decrease
-        </button>
-        <button
-          onClick={increase}
-          className="py-2 px-8 rounded border border-gray-300 hover:bg-gray-100 transition-colors"
-        >
-          Increase
-        </button>
-      </div>
-    </div>
-  )
-}
-
-ReactDOM.render(<App />, document.getElementById('react-root'))
-```
-
-Now we need to add the `react-root` element and `index.bundle.js` to a template
-to use it. I will add it to `layout/theme.liquid`:
-
-```html
-<!-- line 24 -->
-<script src="{{ 'index.bundle.js' | asset_url }}" defer="defer"></script>
-
-...
-
-<!-- line 118 -->
-<div id="react-root"></div>
-
-...
-```
-
-And now you can enjoy your React component.
 
 ## Final notes
 
