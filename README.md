@@ -59,7 +59,7 @@ performance of your theme on every push.
    cd shopify-theme-tailwind
    npm install
    npm run install-theme
-   rm .git && git init
+   rm -rf .git && git init
    ```
 
    You can remove all `install-theme:*` scripts from your `package.json` because
@@ -134,3 +134,7 @@ to track a branch in your Github repository.
 
 If you have any suggestions to improve this repository, please open an issue. I
 would be happy to hear from you.
+
+```
+
+```
