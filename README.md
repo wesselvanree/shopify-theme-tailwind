@@ -52,35 +52,38 @@ performance of your theme on every push.
 
 ### Installation
 
-Run the following commands:
+1. Run the following commands:
 
-```bash
-git clone git@github.com:wesselvanree/shopify-theme-tailwind.git
-cd shopify-theme-tailwind
-rm -rf .git
-git init
-npm install
-```
+   ```bash
+   git clone git@github.com:wesselvanree/shopify-theme-tailwind.git
+   cd shopify-theme-tailwind
+   npm install
+   npm run install-theme
+   rm .git && git init
+   ```
 
-Make sure the TailwindCSS output file (`shopify/assets/index.css`) is included
-in the `head` of your `shopify/layout/theme.liquid` file.
+   You can remove all `install-theme:*` scripts from your `package.json` because
+   you will not need them anymore.
 
-```liquid
-{{ 'index.css' | asset_url | stylesheet_tag }}
-```
+2. Make sure the TailwindCSS output file (`shopify/assets/index.css`) is
+   included in the `head` of your `shopify/layout/theme.liquid` file.
 
-The same holds for all `.bundle.js` files created by Webpack. You need to insert
-the script tags on the places where you want to use the Webpack bundle. You can
-do this with the following line of code:
+   ```liquid
+   {{ 'index.css' | asset_url | stylesheet_tag }}
+   ```
 
-```liquid
-<script src="{{ '[your_script_name].bundle.js' | asset_url }}" defer="defer"></script>
-```
+   The same holds for all `.bundle.js` files created by Webpack. You need to
+   insert the script tags on the places where you want to use the Webpack
+   bundle. You can do this with the following line of code:
 
-Once you've made your first commit, a dist branch will be created on Github. Use
-the Shopify Github integration to sync your theme with the dist branch by going
-to `your admin dashboard` > `Online Store` > `Themes` > `Add Theme` >
-`Connect from Github`.
+   ```liquid
+   <script src="{{ '[your_script_name].bundle.js' | asset_url }}" defer="defer"></script>
+   ```
+
+3. Once you've pushed your first commit to github, a `dist` branch will be
+   created. Use the Shopify Github integration to sync your theme with the
+   `dist` branch by going to `your admin dashboard` > `Online Store` >
+   `Themes` > `Add Theme` > `Connect from Github`.
 
 ## Usage
 
@@ -99,7 +102,7 @@ You will need 2 terminal windows:
      npm run shopify
      ```
 
-2. Compile your code: in a separate terminal window, run `npm start` to start
+2. Build your code: in a separate terminal window, run `npm start` to start
    watch for file changes and build development bundles.
 
 If you prefer to use one single terminal window, you can customize the scripts
