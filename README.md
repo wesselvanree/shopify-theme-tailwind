@@ -3,14 +3,9 @@
 This repository contains a starting point for Shopify Online Store 2.0 Theme
 development using Tailwind CSS and the default Dawn theme.
 
-> :bulb: On june 29, 2021, Shopify introduced a git-based workflow. To learn
-> more, visit the
-> [create a theme guide](https://shopify.dev/themes/getting-started/create) or
-> visit [shopify.dev](https://shopify.dev).
-
-> :warning: When you want to use React,
-> [Hydrogen](https://hydrogen.shopify.dev/) might be more useful for you than
-> this starter.
+> :warning: It is possible to use React with this configuration, but
+> [Hydrogen](https://hydrogen.shopify.dev/) might be more useful because it
+> provides a lot of features out-of-the-box.
 
 ## Workflow
 
@@ -46,7 +41,7 @@ performance of your theme on every push.
 - Because an extra build step is involved, you need to manually copy changes
   made in the Shopify theme editor. Those changes will be committed to the
   `dist` branch.
-- The tailwind `normalize.css` breaks some default styling of the Dawn theme.
+- TailwindCSS preflight breaks some default styles of the Dawn theme.
 
 ## Getting started
 
@@ -67,32 +62,25 @@ git init
 npm install
 ```
 
-Make sure the `shopify/assets/index.css` output file is included in the
-`shopify/layout/theme.liquid` file. Add this line of code under the base.css
-stylesheet tag.
+Make sure the TailwindCSS output file (`shopify/assets/index.css`) is included
+in the `head` of your `shopify/layout/theme.liquid` file.
 
 ```liquid
-<!-- line 113 -->
 {{ 'index.css' | asset_url | stylesheet_tag }}
 ```
 
 The same holds for all `.bundle.js` files created by Webpack. You need to insert
-the script tags on the places where you want to use the Webpack bundle.
+the script tags on the places where you want to use the Webpack bundle. You can
+do this with the following line of code:
+
+```liquid
+<script src="{{ '[your_script_name].bundle.js' | asset_url }}" defer="defer"></script>
+```
 
 Once you've made your first commit, a dist branch will be created on Github. Use
 the Shopify Github integration to sync your theme with the dist branch by going
 to `your admin dashboard` > `Online Store` > `Themes` > `Add Theme` >
 `Connect from Github`.
-
-### Using React
-
-To use React, install the following packages:
-
-```
-npm install react react-dom
-```
-
-Now you can use React in your javascript files.
 
 ## Usage
 
@@ -115,7 +103,7 @@ You will need 2 terminal windows:
    watch for file changes and build development bundles.
 
 If you prefer to use one single terminal window, you can customize the scripts
-in `package.json`.
+in `package.json` to use the `npm-run-all` package.
 
 ### Production
 
