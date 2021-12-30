@@ -1,6 +1,6 @@
 {
   "name": "shopify-theme-tailwindcss",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A starting point for an Online Store 2.0 theme using Tailwind CSS",
   "private": true,
   "scripts": {
