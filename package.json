@@ -15,7 +15,7 @@
     "shopify": "cd shopify && shopify theme serve",
     "install-theme": "npm-run-all install-theme:*",
     "install-theme:clone": "git clone https://github.com/Shopify/dawn.git shopify",
-    "install-theme:cleanup": "rm -rf shopify/{.github,.git,.vscode} && rm shopify/.theme-check.yml",
+    "install-theme:cleanup": "rm -rf shopify/{.github,.git,.vscode,.theme-check.yml}",
     "install-theme:gh-actions": "mv .github.template .github"
   },
   "keywords": [
