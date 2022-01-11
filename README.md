@@ -63,7 +63,9 @@ performance of your theme on every push.
    ```
 
    You can remove all `install-theme:*` scripts from your `package.json` because
-   you will not need them anymore.
+   you will not need them anymore. If your default branch is not named `main`,
+   please replace `main` with your default branch name in
+   `.github/workflows/deploy.yml`
 
 2. Make sure the TailwindCSS output file (`shopify/assets/index.css`) is
    included in the `head` of your `shopify/layout/theme.liquid` file.
