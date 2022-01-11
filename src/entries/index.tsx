@@ -1,3 +1,3 @@
-import { testMessage } from '../utils/test'
+import {helloMessage} from '../utils/hello-world'
 
-console.log(testMessage)
+console.log(helloMessage)
