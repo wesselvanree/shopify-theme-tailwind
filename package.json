@@ -5,15 +5,14 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production npm-run-all build:*",
+    "build": "cross-env NODE_ENV=production run-s build:*",
     "build:css": "postcss src/index.css -o shopify/assets/index.css",
     "build:js": "npx webpack",
     "watch:css": "postcss src/index.css -o shopify/assets/index.css --watch",
     "watch:js": "npx webpack --watch",
-    "start": "npm run start:bundle",
-    "start:bundle": "npm-run-all -p watch:*",
+    "start": "run-p watch:*",
     "shopify": "cd shopify && shopify theme serve",
-    "install-theme": "npm-run-all install-theme:*",
+    "install-theme": "run-s install-theme:*",
     "install-theme:clone": "git clone https://github.com/Shopify/dawn.git shopify",
     "install-theme:cleanup": "rm -rf shopify/{.github,.git,.vscode,.theme-check.yml}",
     "install-theme:gh-actions": "mv .github.template .github"
