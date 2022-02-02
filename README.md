@@ -136,7 +136,3 @@ to track a branch in your Github repository.
 
 If you have any suggestions to improve this repository, please open an issue. I
 would be happy to hear from you.
-
-```
-
-```
