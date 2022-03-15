@@ -41,7 +41,7 @@ performance of your theme on every push.
 - Because an extra build step is involved, you need to manually copy changes
   made in the Shopify theme editor. Those changes will be committed to the
   `dist` branch.
-- TailwindCSS preflight breaks some default styles of the Dawn theme.
+- TailwindCSS breaks some default styles of the Dawn theme.
 
 ## Getting started
 
