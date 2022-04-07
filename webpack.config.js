@@ -5,9 +5,10 @@ const glob = require('glob')
 /**
  * Get files in the entries folder and generate the target filename in the shopify/assets folder.
  *
+ * @param {string} sep folder name separator
  * @returns entries to bundle to the assets folder
  */
-const getEntries = (folderSeparator = '_') => {
+const getEntries = (sep = '_') => {
   const removeExtension = filename => filename.replace(/.[^/.]+$/, '')
   const entries = {}
 
@@ -15,11 +16,11 @@ const getEntries = (folderSeparator = '_') => {
     let name = removeExtension(filePath)
       .replace('./src/entries/', '')
       .split('/')
-      .join(folderSeparator)
+      .join(sep)
 
     // use parent directory name if filename is index.{js,jsx,ts,tsx} inside child directory
-    if (name.endsWith(`${folderSeparator}index`)) {
-      name = name.split(`${folderSeparator}index`)[0]
+    if (name.endsWith(`${sep}index`)) {
+      name = name.split(`${sep}index`)[0]
     }
 
     entries[name] = filePath
@@ -37,7 +38,7 @@ module.exports = {
   mode: mode,
   entry: getEntries(),
   output: {
-    path: path.resolve(__dirname, 'shopify/assets'),
+    path: path.resolve(__dirname, 'shopify', 'assets'),
     filename: '[name].bundle.js',
   },
   module: {
