@@ -2,30 +2,29 @@ require('dotenv').config()
 const path = require('path')
 const glob = require('glob')
 
-const removeExtension = file => {
-  const split = file.split('.')
-  split.pop()
-  return split.join('.')
-}
-
-const getEntries = () => {
+/**
+ * Get files in the entries folder and generate the target filename in the shopify/assets folder.
+ *
+ * @returns entries to bundle to the assets folder
+ */
+const getEntries = (folderSeparator = '_') => {
+  const removeExtension = filename => filename.replace(/.[^/.]+$/, '')
   const entries = {}
+
   glob.sync('./src/entries/**/*.{js,jsx,ts,tsx}').forEach(filePath => {
-    const filename = filePath.replace(/.\/src/).replace(/^.*[\\\/]/, '')
-    const targetPath = removeExtension(filePath).replace('./src/entries/', '')
-    let targetFile = removeExtension(filename)
+    let name = removeExtension(filePath)
+      .replace('./src/entries/', '')
+      .split('/')
+      .join(folderSeparator)
 
     // use parent directory name if filename is index.{js,jsx,ts,tsx} inside child directory
-    if (
-      (targetFile == 'index' || targetFile.endsWith('/index')) &&
-      targetPath != 'index'
-    ) {
-      const parentFolder = targetPath.split('/index')[0].replace(/(.+\/)+/, '')
-      targetFile = !!parentFolder ? parentFolder : filename
+    if (name.endsWith(`${folderSeparator}index`)) {
+      name = name.split(`${folderSeparator}index`)[0]
     }
-    targetFile = targetFile + '.bundle.js'
-    entries[targetFile] = filePath
+
+    entries[name] = filePath
   })
+
   return entries
 }
 
@@ -33,12 +32,13 @@ const mode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development'
 console.log('Webpack running in ' + mode + ' mode')
 
+/** @type {import('webpack').Configuration} */
 module.exports = {
   mode: mode,
   entry: getEntries(),
   output: {
     path: path.resolve(__dirname, 'shopify/assets'),
-    filename: '[name]',
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
