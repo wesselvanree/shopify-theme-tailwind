@@ -2,43 +2,45 @@ require('dotenv').config()
 const path = require('path')
 const glob = require('glob')
 
-const removeExtension = file => {
-  const split = file.split('.')
-  split.pop()
-  return split.join('.')
-}
+/**
+ * Get files in the entries folder and generate the target bundle filename. If an index.{js,jsx,ts,tsx} file
+ * is located in a subfolder of src/entries, the parent folder path will be used for the target bundle filename.
+ *
+ * @param {string} sep folder name separator
+ * @returns entries to bundle to the assets folder
+ */
+const getEntries = (sep = '_') => {
+  const removeExtension = filename => filename.replace(/.[^/.]+$/, '')
+  const nestedIndexEnd = `${sep}index`
 
-const getEntries = () => {
-  const entries = {}
-  glob.sync('./src/entries/**/*.{js,jsx,ts,tsx}').forEach(filePath => {
-    const filename = filePath.replace(/.\/src/).replace(/^.*[\\\/]/, '')
-    const targetPath = removeExtension(filePath).replace('./src/entries/', '')
-    let targetFile = removeExtension(filename)
+  return glob
+    .sync('./src/entries/**/*.{js,jsx,ts,tsx}')
+    .reduce((prev, file) => {
+      let name = removeExtension(file)
+        .replace('./src/entries/', '')
+        .split('/')
+        .join(sep)
 
-    // use parent directory name if filename is index.{js,jsx,ts,tsx} inside child directory
-    if (
-      (targetFile == 'index' || targetFile.endsWith('/index')) &&
-      targetPath != 'index'
-    ) {
-      const parentFolder = targetPath.split('/index')[0].replace(/(.+\/)+/, '')
-      targetFile = !!parentFolder ? parentFolder : filename
-    }
-    targetFile = targetFile + '.bundle.js'
-    entries[targetFile] = filePath
-  })
-  return entries
+      if (name.endsWith(nestedIndexEnd)) {
+        // use parent directory name if filename is index.{js,jsx,ts,tsx} in child directory
+        name = name.slice(0, -nestedIndexEnd.length)
+      }
+
+      return {...prev, [name]: file}
+    }, {})
 }
 
 const mode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development'
-console.log('Webpack running in ' + mode + ' mode')
+console.log(`Webpack running in ${mode} mode`)
 
+/** @type {import('webpack').Configuration} */
 module.exports = {
-  mode: mode,
+  mode,
   entry: getEntries(),
   output: {
-    path: path.resolve(__dirname, 'shopify/assets'),
-    filename: '[name]',
+    path: path.resolve(__dirname, 'shopify', 'assets'),
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
