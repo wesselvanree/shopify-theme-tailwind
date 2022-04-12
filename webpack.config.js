@@ -18,9 +18,11 @@ const getEntries = (sep = '_') => {
       .split('/')
       .join(sep)
 
-    // use parent directory name if filename is index.{js,jsx,ts,tsx} inside child directory
-    if (name.endsWith(`${sep}index`)) {
-      name = name.split(`${sep}index`)[0]
+    const nestedIndexEnd = `${sep}index`
+
+    if (name.endsWith(nestedIndexEnd)) {
+      // use parent directory name if filename is index.{js,jsx,ts,tsx} in child directory
+      name = name.slice(0, -nestedIndexEnd.length)
     }
 
     entries[name] = filePath
