@@ -3,32 +3,31 @@ const path = require('path')
 const glob = require('glob')
 
 /**
- * Get files in the entries folder and generate the target filename in the shopify/assets folder.
+ * Get files in the entries folder and generate the target bundle filename. If an index.{js,jsx,ts,tsx} file
+ * is located in a subfolder of src/entries, the parent folder path will be used for the target bundle filename.
  *
  * @param {string} sep folder name separator
  * @returns entries to bundle to the assets folder
  */
 const getEntries = (sep = '_') => {
   const removeExtension = filename => filename.replace(/.[^/.]+$/, '')
-  const entries = {}
+  const nestedIndexEnd = `${sep}index`
 
-  glob.sync('./src/entries/**/*.{js,jsx,ts,tsx}').forEach(filePath => {
-    let name = removeExtension(filePath)
-      .replace('./src/entries/', '')
-      .split('/')
-      .join(sep)
+  return glob
+    .sync('./src/entries/**/*.{js,jsx,ts,tsx}')
+    .reduce((prev, file) => {
+      let name = removeExtension(file)
+        .replace('./src/entries/', '')
+        .split('/')
+        .join(sep)
 
-    const nestedIndexEnd = `${sep}index`
+      if (name.endsWith(nestedIndexEnd)) {
+        // use parent directory name if filename is index.{js,jsx,ts,tsx} in child directory
+        name = name.slice(0, -nestedIndexEnd.length)
+      }
 
-    if (name.endsWith(nestedIndexEnd)) {
-      // use parent directory name if filename is index.{js,jsx,ts,tsx} in child directory
-      name = name.slice(0, -nestedIndexEnd.length)
-    }
-
-    entries[name] = filePath
-  })
-
-  return entries
+      return {...prev, [name]: file}
+    }, {})
 }
 
 const mode =
@@ -37,7 +36,7 @@ console.log('Webpack running in ' + mode + ' mode')
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
-  mode: mode,
+  mode,
   entry: getEntries(),
   output: {
     path: path.resolve(__dirname, 'shopify', 'assets'),
