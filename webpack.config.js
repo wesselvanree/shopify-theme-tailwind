@@ -32,7 +32,7 @@ const getEntries = (sep = '_') => {
 
 const mode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development'
-console.log('Webpack running in ' + mode + ' mode')
+console.log(`Webpack running in ${mode} mode`)
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
