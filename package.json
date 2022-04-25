@@ -10,9 +10,10 @@
     "build:js": "npx webpack",
     "watch:css": "postcss src/index.css -o shopify/assets/index.css --watch",
     "watch:js": "npx webpack --watch",
-    "start": "run-p watch:*",
+    "start": "npm run dev",
+    "dev": "run-p watch:*",
     "shopify": "cd shopify && shopify theme serve",
-    "install-theme": "node install-theme.js --repo=https://github.com/Shopify/dawn.git"
+    "install-theme": "node scripts/install-theme.js --repo=https://github.com/Shopify/dawn.git"
   },
   "keywords": [
     "Shopify Theme",

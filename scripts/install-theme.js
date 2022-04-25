@@ -1,6 +1,6 @@
 const clone = require('git-clone/promise')
-const logger = require('./helpers/logger')
-const {rm, renameIfExists, glob, mv} = require('./helpers/fs-utils')
+const logger = require('../helpers/logger')
+const {rm, renameIfExists, glob, mv} = require('../helpers/fs-utils')
 
 const globAsync = function (pattern, options) {
   return new Promise((resolve, reject) => {
@@ -35,7 +35,7 @@ function getRepoUrl() {
 /**
  * Clone repo to shopify directory (replaces existing directory)
  */
-async function install() {
+async function installRepo() {
   const repo = getRepoUrl()
 
   if (!repo) return
@@ -44,8 +44,6 @@ async function install() {
   await rm('shopify')
   await clone(repo, 'shopify')
     .then(async () => {
-      logger.success(`Repo cloned`)
-
       glob('./shopify/{.github,.git,.vscode}').then(matches => {
         logger.info('Cleaning repo files')
         matches.forEach(rm)
@@ -74,11 +72,11 @@ async function moveTemplateFiles() {
 
     matches.forEach(async oldPath => {
       const newPath = oldPath.slice(0, -9)
+      logger.info(`Renaming ${oldPath} to ${newPath}`)
       await renameIfExists(oldPath, newPath).catch(logger.error)
-      logger.success(`Renamed ${oldPath} to ${newPath}`)
     })
   })
 }
 
 moveTemplateFiles()
-install()
+installRepo()
