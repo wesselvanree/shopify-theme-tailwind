@@ -1,6 +1,7 @@
 require('dotenv').config()
 const path = require('path')
 const glob = require('glob')
+const logger = require('./helpers/logger')
 
 /**
  * Get files in the entries folder and generate the target bundle filename. If an index.{js,jsx,ts,tsx} file
@@ -32,7 +33,7 @@ const getEntries = (sep = '_') => {
 
 const mode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development'
-console.log(`Webpack running in ${mode} mode`)
+logger.info(`Webpack running in ${mode} mode`)
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
