@@ -4,10 +4,7 @@ const log = console.log
 
 const logger = {
   error: e => log(chalk.red(e)),
-  info: message =>
-    log(chalk.cyan(chalk.cyan('info') + chalk.gray(`     ${message}`))),
-  success: message =>
-    log(chalk.cyan(chalk.green('success') + chalk.gray(`  ${message}`))),
+  info: message => log(chalk.bold(chalk.cyan('info')) + `  - ${message}`),
 }
 
 module.exports = logger
