@@ -2,12 +2,12 @@ const glob = require('glob')
 
 /**
  * Get list of files in the entriesRoot and generate the target bundle filename. If an index.{js,jsx,ts,tsx}
- * file is located in a subdirectory of entriesRoot, the parent folder path will be used for the
+ * file is located in a subdirectory of entriesRoot, the parent directory path will be used for the
  * target bundle filename.
  *
  * @param {string} entriesRoot root directory for Webpack entries
  * @param {string} sep directory name separator
- * @returns {Record<string, string>} entries to bundle to the assets folder
+ * @returns {Record<string, string>} entries to bundle to the assets directory
  */
 const getEntries = (entriesRoot = './src/entries', sep = '_') => {
   const removeExtension = filename => filename.replace(/.[^/.]+$/, '')
