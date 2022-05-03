@@ -1,7 +1,7 @@
 const glob = require('glob')
 
 /**
- * Get list of files in the entriesRoot and generate the target bundle filename. If an index.{js,jsx,ts,tsx}
+ * Get js,jsx,ts,tsx Webpack entries from the entriesRoot directory. If an index.{js,jsx,ts,tsx}
  * file is located in a subdirectory of entriesRoot, the parent directory path will be used for the
  * target bundle filename.
  *
