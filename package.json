@@ -31,7 +31,6 @@
     "@babel/preset-typescript": "^7.18.6",
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
-    "chalk": "^5.0.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.2",
     "git-clone": "^0.2.0",

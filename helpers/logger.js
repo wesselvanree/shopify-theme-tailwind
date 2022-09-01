@@ -1,10 +1,6 @@
-const chalk = require('chalk')
-
-const log = console.log
-
 const logger = {
-  error: e => log(chalk.red(e)),
-  info: message => log(chalk.bold(chalk.cyan('info')) + `  - ${message}`),
+  error: e => console.log('error - ' + e),
+  info: message => console.log(`info  - ${message}`),
 }
 
 module.exports = logger
