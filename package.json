@@ -4,16 +4,10 @@
   "description": "A starting point for an Online Store 2.0 theme using Tailwind CSS",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production run-s build:*",
-    "build:css": "postcss src/index.css -o shopify/assets/index.css",
-    "build:js": "npx webpack",
-    "watch:css": "postcss src/index.css -o shopify/assets/index.css --watch",
-    "watch:js": "npx webpack --watch",
-    "start": "npm run dev",
-    "dev": "run-p watch:*",
+    "dev": "vite build --watch",
+    "build": "tsc && vite build",
     "shopify": "cd shopify && shopify theme serve",
-    "install-theme": "node scripts/install-theme.js --repo=https://github.com/Shopify/dawn.git"
+    "install-theme": "ts-node-esm scripts/install-theme.ts --repo=https://github.com/Shopify/dawn.git"
   },
   "keywords": [
     "Shopify Theme",
@@ -22,27 +16,14 @@
   "author": "Wessel van Ree <hello@wesselvanree.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.18.13",
-    "@babel/node": "^7.18.10",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-transform-runtime": "^7.18.10",
-    "@babel/preset-env": "^7.18.10",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/preset-typescript": "^7.18.6",
+    "@types/shelljs": "^0.8.11",
     "autoprefixer": "^10.4.8",
-    "babel-loader": "^8.2.5",
-    "cross-env": "^7.0.3",
-    "dotenv": "^16.0.2",
-    "git-clone": "^0.2.0",
-    "glob": "^8.0.3",
-    "npm-run-all": "^4.1.5",
+    "fast-glob": "^3.2.11",
     "postcss": "^8.4.16",
-    "postcss-cli": "^10.0.0",
-    "postcss-minify": "^1.1.0",
-    "source-map-loader": "^4.0.0",
+    "shelljs": "^0.8.5",
     "tailwindcss": "^3.1.8",
+    "ts-node": "^10.9.1",
     "typescript": "^4.8.2",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "vite": "^3.0.9"
   }
 }
