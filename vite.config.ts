@@ -18,14 +18,11 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
         {
           name: 'glob-input',
           options(options) {
-            if (typeof options.input !== 'string' && !Array.isArray(options.input))
-              throw new Error(
-                'Please provide a glob string or list of glob strings as input in your rollup config'
-              )
-
             const inputs = typeof options.input === 'string' ? [options.input] : options.input
 
-            return { ...options, input: inputs.flatMap((input) => fg.sync(input)) }
+            return Array.isArray(inputs)
+              ? { ...options, input: inputs.flatMap((input) => fg.sync(input)) }
+              : null
           },
         },
       ],
