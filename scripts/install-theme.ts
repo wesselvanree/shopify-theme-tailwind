@@ -39,7 +39,13 @@ async function installRepo() {
 
   return await rm('shopify')
     .then(() => shell.exec(`git clone ${repo} shopify`))
-    .then(() => ['.shopify/.github', '.shopify/.git', '.shopify/.vscode'].map(rm))
+    .then(() =>
+      ['./shopify/.github', './shopify/.git', './shopify/.vscode'].map((path) =>
+        rm(path)
+          .then(() => logger.info(`Removed ${path}`))
+          .catch(() => {})
+      )
+    )
 }
 
 /**
