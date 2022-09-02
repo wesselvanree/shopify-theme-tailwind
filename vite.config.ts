@@ -1,6 +1,5 @@
-import { defineConfig } from 'vite'
 import fg from 'fast-glob'
-import { resolve } from 'path'
+import { defineConfig } from 'vite'
 
 export default defineConfig(({ command, mode, ssrBuild }) => ({
   build: {
