@@ -14,14 +14,19 @@ if (!shell.which('git')) {
 Promise.all([installRepo(), moveTemplateFiles()]).catch(logger.error)
 
 async function mv(oldPath: string, newPath: string) {
-  return await fs.access(oldPath).then(async () => await fs.rename(oldPath, newPath))
+  return await fs
+    .access(oldPath)
+    .then(() => fs.rename(oldPath, newPath))
+    .then(() => logger.info(`Renamed ${oldPath} to ${newPath}`))
 }
 
 async function rm(path: string) {
-  return await fs.rm(path, {
-    force: true,
-    recursive: true,
-  })
+  return await fs
+    .rm(path, {
+      force: true,
+      recursive: true,
+    })
+    .then(() => logger.info(`Removed ${path}`))
 }
 
 /**
@@ -40,23 +45,17 @@ async function installRepo() {
   return await rm('shopify')
     .then(() => shell.exec(`git clone ${repo} shopify`))
     .then(() =>
-      ['./shopify/.github', './shopify/.git', './shopify/.vscode'].map((path) =>
-        rm(path)
-          .then(() => logger.info(`Removed ${path}`))
-          .catch(() => {})
-      )
+      ['./shopify/.github', './shopify/.git', './shopify/.vscode'].map((path) => rm(path))
     )
+    .catch(() => {})
 }
 
 /**
  * Rename .template files/directories
  */
 async function moveTemplateFiles() {
-  return ['.github.template'].forEach(async (oldPath) => {
+  return ['.github.template'].forEach((oldPath) => {
     const newPath = oldPath.slice(0, -9)
-
-    await mv(oldPath, newPath)
-      .then(() => logger.info(`Renamed ${oldPath} to ${newPath}`))
-      .catch(() => {})
+    return mv(oldPath, newPath).catch(() => {})
   })
 }
