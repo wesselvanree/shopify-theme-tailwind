@@ -1,24 +1,21 @@
 # Shopify Theme Tailwind CSS
 
 This repository contains a starting point for Shopify Online Store 2.0 Theme
-development using Tailwind CSS and the default Dawn theme.
+development using Tailwind CSS and Vite.
 
 ## Workflow
 
-- Edit theme locally using the Shopify CLI, Tailwind and Rollup
-- Commit changes to feature branch
-- Merge feature branch with main branch once feature is implemented
-- Automatically publish the production build to the `dist` branch using Github
-  Actions on push to `main`
-- Shopify automatically syncs with the `dist` branch using the Github
-  integration.
+- Create a feature branch
+- Edit theme locally
+- Commit changes to the feature branch
+- Merge feature branch with main branch once feature is implemented. A production build will be created and pushed to the `dist` branch using Github Actions.
 
 ## Getting started
 
 ### Prerequisites
 
-- [Shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli)
 - [Node.js](https://nodejs.org/)
+- [Shopify CLI](https://shopify.dev/themes/getting-started/create#step-1-install-shopify-cli)
 
 ### Installation
 
@@ -32,22 +29,21 @@ development using Tailwind CSS and the default Dawn theme.
    rm -rf .git && git init
    ```
 
-   If your default branch is not named `main`, please replace `main` with your
-   default branch name in `.github/workflows/deploy.yml`
+   If your default branch is not called `main`, please replace `main` with your
+   default branch name in `.github/workflows/deploy.yml`.
 
-2. Make sure the TailwindCSS output file (`shopify/assets/global.css`) is
+2. Make sure the TailwindCSS output file (`shopify/assets/index.min.css`) is
    included in the `head` of your `shopify/layout/theme.liquid` file.
 
    ```liquid
-   {{ 'global.css' | asset_url | stylesheet_tag }}
+   {{ 'index.min.css' | asset_url | stylesheet_tag }}
    ```
 
-   The same holds for all `.bundle.js` files created by Rollup. You need to
-   insert the script tags on the places where you want to use the bundle. You
-   can do this with the following line of code:
+   The same holds for all `.bundle.js` files created by Vite. You need to
+   insert the script tags on the places where you want to use the bundle. For example, you could insert the `index.bundle.js` using:
 
    ```liquid
-   <script src='{{ '[your_script_name].bundle.js' | asset_url }}' defer='defer'>
+   <script src='{{ 'index.bundle.js' | asset_url }}' defer='defer'>
    </script>
    ```
 
@@ -62,22 +58,21 @@ development using Tailwind CSS and the default Dawn theme.
 
 You will need 2 terminal windows:
 
-1. Serve your Shopify theme
+1. Start watching for local changes
 
-   - First, log in to your store if you was not logged in already.
-     ```bash
-     shopify login --store your-store-name.myshopify.com
-     ```
-   - Serve your theme to your development store
-     ```bash
-     npm run shopify
-     ```
+   ```bash
+   npm run dev
+   ```
 
-2. Build your code: in a separate terminal window, run `npm start` to start
-   watch for file changes and build development bundles.
+2. Serve your Shopify theme
+
+   ```bash
+   shopify login --store your-store-name.myshopify.com
+   npm run shopify
+   ```
 
 If you prefer to use one single terminal window, you can customize the scripts
-in `package.json` to use the `npm-run-all` package.
+in `package.json` to use the [npm-run-all](https://www.npmjs.com/package/npm-run-all) package.
 
 ### Production
 
@@ -88,37 +83,13 @@ the build to another branch. Currently, the action is configured to deploy the
 build to the dist branch. You can easily customize this by editing
 `.github/workflows/deploy.yml`.
 
-Alternatively, you can create the build manually. Run `npm run build` to build
-for production. You can use the
-[Shopify Github integration](https://shopify.dev/themes/getting-started/create#step-6-install-the-shopify-github-integration-and-connect-your-branch-to-your-store)
-to track a branch in your Github repository.
+> :warning: Changes made from the Shopify theme editor after deployment will be committed to the `dist` branch by the Shopify Github integration. You need to manually copy these changes before updating the main branch otherwise these changes will be lost.
 
 ## Final notes
-
-### Technologies used
-
-- Tailwind CSS
-  - The main css file is located in `src/global.css`
-  - This file will be built to `shopify/assets/global.css`
-- Rollup
-  - All `src/entries/**/*.{js,jsx,ts,tsx}` files will be sourced as Rollup entry
-    and the output file can be found in the `assets` directory. All build
-    bundles get the extension `.bundle.js` instead of `.{js,jsx,ts,tsx}`.
-- Shopify CLI
-- Github Actions to deploy the theme to the dist branch on push to the main
-  branch
-- Github Actions to test for build errors on every Pull Request
 
 You might find it useful to copy the Lighthouse Github Action from the original
 [Dawn theme](https://github.com/Shopify/dawn) repository to track the
 performance of your theme on every push.
-
-### Disadvantages
-
-- Because an extra build step is involved, you need to manually copy changes
-  made in the Shopify theme editor. Those changes will be committed to the
-  `dist` branch.
-- TailwindCSS breaks some default styles of the Dawn theme.
 
 ### Further reading
 
