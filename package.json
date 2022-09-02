@@ -4,14 +4,8 @@
   "description": "A starting point for an Online Store 2.0 theme using Tailwind CSS",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "run-p watch shopify",
-    "build": "run-p build:*",
-    "build:js": "npx rollup -c --configPlugin @rollup/plugin-typescript",
-    "build:css": "npx tailwindcss -i ./src/index.css -o ./shopify/assets/index.css",
-    "watch": "run-p watch:*",
-    "watch:js": "npx rollup -c --configPlugin @rollup/plugin-typescript -w",
-    "watch:css": "npx tailwindcss -i ./src/index.css -o ./shopify/assets/index.css -w",
+    "dev": "vite",
+    "build": "tsc && vite build",
     "shopify": "cd shopify && shopify theme serve",
     "install-theme": "node scripts/install-theme.js --repo=https://github.com/Shopify/dawn.git"
   },
@@ -22,21 +16,11 @@
   "author": "Wessel van Ree <hello@wesselvanree.com>",
   "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^22.0.2",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "^8.4.0",
-    "@shopify/prettier-plugin-liquid": "^0.2.1",
-    "@swc/core": "^1.2.224",
     "autoprefixer": "^10.4.8",
-    "cross-env": "^7.0.3",
     "fast-glob": "^3.2.11",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.1.13",
-    "rollup": "^2.77.2",
-    "rollup-plugin-swc": "^0.2.1",
+    "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8",
-    "tslib": "^2.4.0",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.2",
+    "vite": "^3.0.9"
   }
 }
