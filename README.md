@@ -1,7 +1,7 @@
-# Shopify Theme Tailwind CSS
+# Shopify Theme Tailwind
 
 This repository contains a starting point for Shopify Online Store 2.0 Theme
-development using Tailwind CSS and Vite.
+development using [Tailwind CSS](https://tailwindcss.com) and [Vite](https://vitejs.dev).
 
 ## Workflow
 
