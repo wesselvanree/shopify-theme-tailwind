@@ -11,7 +11,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
     assetsDir: '.',
     cssCodeSplit: false,
     rollupOptions: {
-      input: 'src/entries/*.{tsx,ts,jsx,js}',
+      input: ['src/entries/*.{tsx,ts,jsx,js}', 'src/styles/*.css'],
       output: {
         dir: 'shopify/assets',
         entryFileNames: '[name].bundle.js',
