@@ -3,18 +3,17 @@ import fg from 'fast-glob'
 import { resolve } from 'path'
 
 export default defineConfig(({ command, mode, ssrBuild }) => ({
-  server: {
-    host: false,
-  },
   build: {
     outDir: 'shopify/assets',
     assetsDir: '.',
-    cssCodeSplit: false,
+    emptyOutDir: false,
     rollupOptions: {
       input: ['src/entries/*.{tsx,ts,jsx,js}', 'src/styles/*.css'],
       output: {
         dir: 'shopify/assets',
         entryFileNames: '[name].bundle.js',
+        chunkFileNames: '[name].chunk.js',
+        assetFileNames: '[name].min.[ext]',
       },
       plugins: [
         {

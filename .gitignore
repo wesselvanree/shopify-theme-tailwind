@@ -26,5 +26,5 @@ dist-ssr
 # shopify
 shopify/assets/index.css
 shopify/assets/*.LICENSE.txt
-shopify/assets/*.bundle.js
-shopify/assets/*.*.css
+shopify/assets/*.*.js
+shopify/assets/*.min.*
