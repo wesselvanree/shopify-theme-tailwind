@@ -6,8 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "run-p watch shopify",
-    "build": "npx rollup -c --configPlugin @rollup/plugin-typescript",
-    "watch": "npx rollup -c --configPlugin @rollup/plugin-typescript -w",
+    "build": "run-p build:*",
+    "build:js": "npx rollup -c --configPlugin @rollup/plugin-typescript",
+    "build:css": "npx tailwindcss -i ./src/index.css -o ./shopify/assets/index.css",
+    "watch": "run-p watch:*",
+    "watch:js": "npx rollup -c --configPlugin @rollup/plugin-typescript -w",
+    "watch:css": "npx tailwindcss -i ./src/index.css -o ./shopify/assets/index.css -w",
     "shopify": "cd shopify && shopify theme serve",
     "install-theme": "node scripts/install-theme.js --repo=https://github.com/Shopify/dawn.git"
   },
@@ -30,7 +34,6 @@
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "rollup": "^2.77.2",
-    "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-swc": "^0.2.1",
     "tailwindcss": "^3.1.8",
     "tslib": "^2.4.0",

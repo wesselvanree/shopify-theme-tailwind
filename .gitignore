@@ -9,7 +9,7 @@ ehthumbs.db
 Thumbs.db
 
 node_modules
-shopify/assets/global.css
+shopify/assets/index.css
 shopify/assets/*.LICENSE.txt
 shopify/assets/*.bundle.js
 .env
