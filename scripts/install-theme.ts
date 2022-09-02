@@ -40,8 +40,6 @@ async function installRepo() {
     shell.exit(9)
   }
 
-  logger.info(`Cloning ${repo}`)
-
   return await rm('shopify')
     .then(() => shell.exec(`git clone ${repo} shopify`))
     .then(() =>
@@ -54,8 +52,6 @@ async function installRepo() {
  * Rename .template files/directories
  */
 async function moveTemplateFiles() {
-  return ['.github.template'].forEach((oldPath) => {
-    const newPath = oldPath.slice(0, -9)
-    return mv(oldPath, newPath).catch(() => {})
-  })
+  logger.info('Moving template files...')
+  return ['_github'].map((oldPath) => mv(oldPath, oldPath.replace('_', '.')).catch(() => {}))
 }
