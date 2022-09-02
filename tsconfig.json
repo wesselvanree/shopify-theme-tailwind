@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "es5",
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
@@ -14,7 +14,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    // custom rules
+    "noUncheckedIndexedAccess": true
   },
-  "include": ["src"]
+  "include": ["src", "scripts"]
 }
