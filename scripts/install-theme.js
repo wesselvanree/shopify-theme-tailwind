@@ -1,14 +1,22 @@
-const clone = require('git-clone/promise')
-const logger = require('../helpers/logger')
-const {rm, renameIfExists, glob, mv} = require('../helpers/fs-utils')
+const fg = require('fast-glob')
+const fs = require('fs/promises')
 
-const globAsync = function (pattern, options) {
-  return new Promise((resolve, reject) => {
-    glob(pattern, options, (err, files) =>
-      err === null ? resolve(files) : reject(err),
-    )
-  })
+const logger = {
+  error: e => console.log('error - ' + e),
+  info: message => console.log(`info  - ${message}`),
 }
+
+const rm = async path =>
+  await fs.rm(path, {
+    force: true,
+    recursive: true,
+  })
+
+const renameIfExists = async (oldPath, newPath) =>
+  await fs
+    .access(oldPath)
+    .then(async () => await fs.rename(oldPath, newPath))
+    .catch(logger.error)
 
 /**
  * Tries to get the repo URL from the --repo command-line argument. It exits
@@ -44,15 +52,15 @@ async function installRepo() {
   await rm('shopify')
   await clone(repo, 'shopify')
     .then(async () => {
-      glob('./shopify/{.github,.git,.vscode}').then(matches => {
+      fg('./shopify/{.github,.git,.vscode}').then(matches => {
         logger.info('Cleaning repo files')
         matches.forEach(rm)
       })
 
-      glob('./shopify/.theme-check.yml').then(matches => {
+      fg('./shopify/.theme-check.yml').then(matches => {
         matches.forEach(async match => {
           logger.info(`Moving ${match} to project root`)
-          await mv(match, match.slice(10))
+          await fs.rename(match, match.slice(10))
         })
       })
     })
@@ -63,7 +71,7 @@ async function installRepo() {
  * Rename .template files/directories
  */
 async function moveTemplateFiles() {
-  globAsync('*.template', {
+  fg('*.template', {
     dot: true,
   }).then(matches => {
     if (matches.length > 0) {

@@ -3,45 +3,15 @@
 This repository contains a starting point for Shopify Online Store 2.0 Theme
 development using Tailwind CSS and the default Dawn theme.
 
-> :warning: It is possible to use React with this configuration, but
-> [Hydrogen](https://hydrogen.shopify.dev/) might be more useful because it
-> provides a lot of features out-of-the-box.
-
 ## Workflow
 
-A short description of this workflow:
-
-- Edit theme locally using the Shopify CLI, Tailwind and Webpack
+- Edit theme locally using the Shopify CLI, Tailwind and Rollup
 - Commit changes to feature branch
 - Merge feature branch with main branch once feature is implemented
 - Automatically publish the production build to the `dist` branch using Github
-  Actions
-- Shopify automatically syncs with the `dist` branch.
-
-### Technologies used
-
-- Tailwind CSS
-  - The main css file is located in `src/index.css`
-  - This file will be built to `shopify/assets/index.css`
-- Webpack
-  - All `src/entries/**/*.{js,jsx,ts,tsx}` files will be sourced as webpack
-    entry and the output file can be found in the `assets` directory. All build
-    bundles get the extension `.bundle.js` instead of `.{js,jsx,ts,tsx}`.
-- Shopify CLI
-- Github Actions to deploy the theme to the dist branch on push to the main
-  branch
-- Github Actions to test for build errors on every Pull Request
-
-You can copy the Lighthouse Github Action from the original
-[Dawn theme](https://github.com/Shopify/dawn) repository to track the
-performance of your theme on every push.
-
-### Disadvantages
-
-- Because an extra build step is involved, you need to manually copy changes
-  made in the Shopify theme editor. Those changes will be committed to the
-  `dist` branch.
-- TailwindCSS breaks some default styles of the Dawn theme.
+  Actions on push to `main`
+- Shopify automatically syncs with the `dist` branch using the Github
+  integration.
 
 ## Getting started
 
@@ -65,19 +35,20 @@ performance of your theme on every push.
    If your default branch is not named `main`, please replace `main` with your
    default branch name in `.github/workflows/deploy.yml`
 
-2. Make sure the TailwindCSS output file (`shopify/assets/index.css`) is
+2. Make sure the TailwindCSS output file (`shopify/assets/global.css`) is
    included in the `head` of your `shopify/layout/theme.liquid` file.
 
    ```liquid
-   {{ 'index.css' | asset_url | stylesheet_tag }}
+   {{ 'global.css' | asset_url | stylesheet_tag }}
    ```
 
-   The same holds for all `.bundle.js` files created by Webpack. You need to
-   insert the script tags on the places where you want to use the Webpack
-   bundle. You can do this with the following line of code:
+   The same holds for all `.bundle.js` files created by Rollup. You need to
+   insert the script tags on the places where you want to use the bundle. You
+   can do this with the following line of code:
 
    ```liquid
-   <script src="{{ '[your_script_name].bundle.js' | asset_url }}" defer="defer"></script>
+   <script src='{{ '[your_script_name].bundle.js' | asset_url }}' defer='defer'>
+   </script>
    ```
 
 3. Once you've pushed your first commit to github, a `dist` branch will be
@@ -123,6 +94,31 @@ for production. You can use the
 to track a branch in your Github repository.
 
 ## Final notes
+
+### Technologies used
+
+- Tailwind CSS
+  - The main css file is located in `src/global.css`
+  - This file will be built to `shopify/assets/global.css`
+- Rollup
+  - All `src/entries/**/*.{js,jsx,ts,tsx}` files will be sourced as Rollup entry
+    and the output file can be found in the `assets` directory. All build
+    bundles get the extension `.bundle.js` instead of `.{js,jsx,ts,tsx}`.
+- Shopify CLI
+- Github Actions to deploy the theme to the dist branch on push to the main
+  branch
+- Github Actions to test for build errors on every Pull Request
+
+You might find it useful to copy the Lighthouse Github Action from the original
+[Dawn theme](https://github.com/Shopify/dawn) repository to track the
+performance of your theme on every push.
+
+### Disadvantages
+
+- Because an extra build step is involved, you need to manually copy changes
+  made in the Shopify theme editor. Those changes will be committed to the
+  `dist` branch.
+- TailwindCSS breaks some default styles of the Dawn theme.
 
 ### Further reading
 
