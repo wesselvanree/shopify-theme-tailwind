@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./shopify/**/*.liquid', './src/**/*.{tsx,ts,jsx,js}'],
   theme: {
