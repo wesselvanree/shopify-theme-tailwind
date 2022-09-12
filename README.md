@@ -32,20 +32,14 @@ development using [Tailwind CSS](https://tailwindcss.com) and [Vite](https://vit
    If your default branch is not called `main`, please replace `main` with your
    default branch name in `.github/workflows/deploy.yml`.
 
-2. **Add script and link tags**: Make sure the TailwindCSS output file (`shopify/assets/index.min.css`) is
-   included in the `head` of your `shopify/layout/theme.liquid` file.
+2. **Add script and link tags**: Include `index.min.css` and `index.bundle.js` in the head tag (after `base.css`) `shopify/layout/theme.liquid`
 
    ```liquid
    {{ 'index.min.css' | asset_url | stylesheet_tag }}
+   <script src='{{ 'index.bundle.js' | asset_url }}' defer='defer'></script>
    ```
 
-   The same holds for all `.bundle.js` files created by Vite. You need to
-   insert the script tags on the places where you want to use the bundle. For example, you could insert the `index.bundle.js` using:
-
-   ```liquid
-   <script src='{{ 'index.bundle.js' | asset_url }}' defer='defer'>
-   </script>
-   ```
+   You also need to include other script tags and styles you have added to the entries directory yourself. Vite extracts CSS for each entry to a `[name].min.css` file in the assets directory, when a stylesheet is shared between multiple entries it becomes a separate css file in the assets directory.
 
 3. **Setup Shopify Github integration**: Once you've pushed your first commit to github, a `dist` branch will be
    created. Use the Shopify Github integration to sync your theme with the
