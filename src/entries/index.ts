@@ -1,4 +1,3 @@
-// This is just an example, you may remove this file
-console.log('Hello, World!')
+import '../styles/index.css'
 
-export {}
+console.log('Hello, World!')
