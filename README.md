@@ -19,7 +19,7 @@ development using [Tailwind CSS](https://tailwindcss.com) and [Vite](https://vit
 
 ### Installation
 
-1. Run the following commands:
+1. **Clone the repo and install theme**: Run the following commands:
 
    ```bash
    git clone git@github.com:wesselvanree/shopify-theme-tailwind.git
@@ -32,7 +32,7 @@ development using [Tailwind CSS](https://tailwindcss.com) and [Vite](https://vit
    If your default branch is not called `main`, please replace `main` with your
    default branch name in `.github/workflows/deploy.yml`.
 
-2. Make sure the TailwindCSS output file (`shopify/assets/index.min.css`) is
+2. **Add script and link tags**: Make sure the TailwindCSS output file (`shopify/assets/index.min.css`) is
    included in the `head` of your `shopify/layout/theme.liquid` file.
 
    ```liquid
@@ -47,10 +47,18 @@ development using [Tailwind CSS](https://tailwindcss.com) and [Vite](https://vit
    </script>
    ```
 
-3. Once you've pushed your first commit to github, a `dist` branch will be
+3. **Setup Shopify Github integration**: Once you've pushed your first commit to github, a `dist` branch will be
    created. Use the Shopify Github integration to sync your theme with the
    `dist` branch by going to `your admin dashboard` > `Online Store` >
    `Themes` > `Add Theme` > `Connect from Github`.
+
+4. **Customize tailwind config**: By default, `tailwind.config.cjs` includes custom options for the Dawn theme:
+
+   - Prefix has been set to `tw-`
+   - `rem` units of the default config are converted to a root font-size of `10px`
+   - Use CSS variables set in `theme.liquid` (Dawn) in tailwind config
+   - Custom screen breakpoints
+   - Preflight has been disabled
 
 ## Usage
 
