@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./shopify/**/*.liquid', './src/**/*.{tsx,ts,jsx,js}'],
-  prefix: 'tw-',
+  prefix: 'twcss-',
   theme: {
     columns: replaceRem(defaultTheme.columns),
     spacing: replaceRem(defaultTheme.spacing),
@@ -15,6 +15,10 @@ module.exports = {
       fontFamily: {
         body: 'var(--font-body-family)',
         heading: 'var(--font-heading-family)',
+        'GothamBold': ['GothamBold', 'sans-serif'],
+        'GothamLight': ['GothamLight', 'sans-serif'],
+        'GothamMedium': ['GothamMedium', 'sans-serif'],
+        'GothamNormal': ['GothamNormal', 'sans-serif'],
       },
       colors: {
         text: 'rgba(var(--color-base-text), <alpha-value>)',
@@ -62,3 +66,4 @@ function replaceRem(value) {
 
   return value
 }
+

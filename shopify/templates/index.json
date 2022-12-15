@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "4e84fe15-5707-48b8-ba67-d3d6d627868d": {
+      "type": "laiv-hero",
+      "settings": {
+        "videoUrl": "",
+        "subtext": "JUST SAVING LIVES.",
+        "heroText": "ARBEITSKLEIDUNG <br>MIT NASA TECHNOLOGIE",
+        "buttonLinkOne": "",
+        "buttonTextOne": "Produkte",
+        "buttonLinkTwo": "",
+        "buttonTextTwo": "MEHR ERFAHREN"
+      }
+    }
+  },
+  "order": [
+    "4e84fe15-5707-48b8-ba67-d3d6d627868d"
+  ]
+}

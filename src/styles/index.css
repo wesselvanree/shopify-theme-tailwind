@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components{
+    .btn-primary{
+        @apply twcss-inline-flex twcss-flex-row twcss-justify-center twcss-items-center twcss-px-[11px] twcss-py-[18px] twcss-gap-[10px] btn-primary-background twcss-text-[16px] twcss-leading-[20px] twcss-text-white twcss-no-underline twcss-min-w-[131px] lg:twcss-min-w-[181px] twcss-font-GothamNormal twcss-transition-all twcss-uppercase
+
+    }
+
+    .btn-primary-background{
+        background: linear-gradient(90deg, #D47F66 0%, #F8A984 100%);
+    }
+
+    .btn-primary:hover{
+        background: linear-gradient(90deg, #F8A984 0%, #D47F66 100%);
+    }
+
+    .btn-secondary{
+     @apply twcss-border twcss-border-[#D47F66] twcss-border-solid twcss-inline-flex twcss-flex-row twcss-justify-center twcss-items-center twcss-px-[11px] twcss-py-[18px] twcss-gap-[10px] twcss-text-[#D47F66] twcss-no-underline twcss-min-w-[131px] lg:twcss-min-w-[181px] twcss-uppercase twcss-font-GothamNormal
+    }
+}

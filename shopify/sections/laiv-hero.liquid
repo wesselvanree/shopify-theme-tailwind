@@ -1,0 +1,75 @@
+<div class="twcss-w-full lg:twcss-h-screen twcss-bg-[#FFF5EF] lg:twcss-flex lg:twcss-items-center twcss-relative">
+  <video
+    src="{{ section.settings.videoUrl }}"
+    poster=""
+    autoplay
+    muted
+    loop
+    playsinline
+    class="twcss-w-full twcss-min-h-[422px] lg:twcss-h-screen  twcss-object-cover twcss-relative lg:twcss-absolute lg:twcss-top-0 lg:twcss-left-0 lg:twcss-z-0"></video>
+  <div class="twcss-bg-[#FFF5EF] lg:twcss-bg-transparent twcss-px-[20px] twcss-py-[30px]  twcss-text-[16px] twcss-leading-[17px] twcss-z-10 twcss-relative">
+    <p class="twcss-font-GothamLight twcss-text-[#F8A984] lg:twcss-text-[20px]">{{ section.settings.subtext }}</p>
+    <h1 class="twcss-font-GothamBold twcss-text-[34px] twcss-leading-[38px] twcss-text-[#29493E] lg:twcss-text-white lg:twcss-text-[48px] lg:twcss-leading-[53px]">{{ section.settings.heroText }}</h1>
+    <div>
+      <a href="{{ section.settings.buttonLinkOne }}" class="btn-primary">{{ section.settings.buttonTextOne }}</a>
+      <a href="{{ section.settings.buttonLinkTwo }}" class="btn-secondary">{{ section.settings.buttonTextTwo }}</a>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": {
+      "en": "Hero",
+      "de": "Hero"
+    },
+    "settings": [
+      {
+        "type": "text",
+        "id": "videoUrl",
+        "label": "Url für das Video",
+        "info": "Wird im Hintergrund abgespielt"
+      },
+      {
+        "type": "text",
+        "id": "subtext",
+        "label": "Subtext",
+        "info": "Wird über dem Herotext angezeigt"
+      },
+      {
+        "type": "text",
+        "id": "heroText",
+        "label": "Hero Text",
+        "info": "H1 Element der Seite"
+      },
+      {
+        "type": "url",
+        "id": "buttonLinkOne",
+        "label": "Link für den ersten Button",
+        "info": "Primärbutton"
+      }, {
+        "type": "text",
+        "id": "buttonTextOne",
+        "label": "Text für den ersten Button",
+        "info": "Primärbutton"
+      }, {
+        "type": "url",
+        "id": "buttonLinkTwo",
+        "label": "Link für den zweiten Button",
+        "info": "Sekundärbutton"
+      }, {
+        "type": "text",
+        "id": "buttonTextTwo",
+        "label": "Text für den zweiten Button",
+        "info": "Sekundärbutton"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero",
+        "category": "LAIV"
+      }
+    ]
+  }
+{% endschema %}
