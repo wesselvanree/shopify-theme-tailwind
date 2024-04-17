@@ -1,7 +1,7 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ['./shopify/**/*.liquid', './src/**/*.{tsx,ts,jsx,js}'],
   prefix: 'tw-',
   theme: {

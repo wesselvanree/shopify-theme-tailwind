@@ -1,7 +1,7 @@
 import fg from 'fast-glob'
 import { defineConfig } from 'vite'
 
-export default defineConfig(({ command, mode, ssrBuild }) => ({
+export default defineConfig(({ command, mode }) => ({
   build: {
     outDir: 'shopify/assets',
     assetsDir: '.',
