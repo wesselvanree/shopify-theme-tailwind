@@ -69,7 +69,7 @@ You will need 2 terminal windows:
 2. Serve your Shopify theme
 
    ```bash
-   shopify login --store your-store-name.myshopify.com
+   shopify theme dev --store your-store-name.myshopify.com
    npm run shopify
    ```
 
