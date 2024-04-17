@@ -2,6 +2,7 @@
   "name": "shopify-theme-tailwindcss",
   "version": "2.2.1",
   "description": "A starting point for an Online Store 2.0 theme using Tailwind CSS",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "vite build --watch",
