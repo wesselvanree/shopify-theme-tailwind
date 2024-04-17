@@ -46,7 +46,7 @@ development using [Tailwind CSS](https://tailwindcss.com) and [Vite](https://vit
    `dist` branch by going to `your admin dashboard` > `Online Store` >
    `Themes` > `Add Theme` > `Connect from Github`.
 
-4. **Customize tailwind config**: By default, `tailwind.config.cjs` includes custom options for the Dawn theme:
+4. **Customize tailwind config**: By default, `tailwind.config.ts` includes custom options for the Dawn theme:
 
    - Prefix has been set to `tw-`
    - `rem` units of the default config are converted to a root font-size of `10px`
